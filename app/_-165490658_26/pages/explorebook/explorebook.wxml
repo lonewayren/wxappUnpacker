@@ -1,0 +1,15 @@
+<view class="wrap">
+    <view class="head">
+        <view class="title">分享好友，免费领书</view>
+        <view class="des1">将书分享给微信群/好友，即可免费获得此书。</view>
+        <view class="des2">每本书每个人只能领取一次。</view>
+    </view>
+    <view class="lists">
+        <view bindtap="toinfopage" class="book" data-column="{{item}}" wx:for="{{booksdata}}" wx:key="index">
+            <image class="poster" src="{{item.cover}}"></image>
+            <view class="title">{{item.title}}</view>
+            <view class="desc {{isIOS?'is-ios':''}}">原价: ¥{{item.column_price_market}}</view>
+            <view class="btn rowcenter">{{item.had_sub?'开始阅读':' 免费领取'}}</view>
+        </view>
+    </view>
+</view>

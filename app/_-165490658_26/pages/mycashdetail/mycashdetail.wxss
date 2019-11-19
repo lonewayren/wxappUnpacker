@@ -1,0 +1,73 @@
+.cash-detail {
+    background: #f5f5f5;
+    min-height: 100vh;
+}
+
+.cash-detail .ul {
+    padding-bottom: 50px;
+}
+
+.cash-detail .ul .li {
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 16px;
+    border-bottom: #D2D3D5 solid 1px;
+    justify-content: space-between;
+}
+
+.cash-detail .ul .li:first-child {
+    border-top: #D2D3D5 solid 1px;
+}
+
+.cash-detail .ul .li .info {
+    width: 68%;
+    flex-shrink: 1;
+}
+
+.cash-detail .ul .li .info .h2 {
+    color: #353535;
+    font-size: 30rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    padding-right: 10px;
+    font-weight: 700;
+}
+
+.cash-detail .ul .li .info .p {
+    color: #888;
+    font-size: 12.75px;
+    padding-top: 10px;
+}
+
+.cash-detail .ul .li .amount {
+    flex-shrink: 0;
+    font-size: 22px;
+    color: #353535;
+    font-weight: 400;
+}
+
+.cash-detail .ul .li .amount.income {
+    color: #fa8919;
+}
+
+.cash-detail .rule {
+    text-align: center;
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    padding: 10px 0;
+    font-size: 14px;
+    width: 750rpx;
+    color: #fa8919;
+    border-top: 1px solid #f5f5f5;
+}
+
+.none {
+    text-align: center;
+    line-height: 64px;
+    color: #353535;
+}

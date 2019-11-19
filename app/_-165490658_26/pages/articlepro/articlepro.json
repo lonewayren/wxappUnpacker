@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "mini-audio-player": "/component/MiniAudioPlayer/MiniAudioPlayer",
+        "action-sheet-share": "/component/ActionSheetShare/ActionSheetShare",
+        "gk-video": "/component/GKVideo/GKVideo"
+    }
+}

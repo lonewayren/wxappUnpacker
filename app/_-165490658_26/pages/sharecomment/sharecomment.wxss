@@ -1,0 +1,24 @@
+page {
+    background-color: #fffcf7;
+}
+
+.displaycanvas {
+    margin-bottom: 130rpx;
+}
+
+.saveBtn {
+    background: #FA8919;
+    color: #fff;
+    width: 100%;
+    height: 90rpx;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+}
+
+.saveBtn .text {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}

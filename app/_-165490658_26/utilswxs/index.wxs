@@ -1,0 +1,50 @@
+function formatProductPrice(isPreorder, priceMarket, price, type) {
+    var subscribe = type === 'course' ? '加入学习' : '订阅';
+    var state = isPreorder ? '预售' : priceMarket > price ? '限时' : subscribe;
+    return (state + ' ¥' + formatPrice(price))
+};
+
+function formatPrice(price, fixed) {
+    fixed = fixed || 0;
+    if (!price) price = 0;;
+    if (fixed > 0) {
+        return (Number)(price / 100).toFixed(fixed)
+    } else {
+        var p = price / 100;
+        var pstr = p.toFixed(2);
+        if (getRegExp('\x5c.00$', 'img').test(pstr)) {
+            return (Math.ceil(price / 100))
+        } else if (getRegExp('\x5c.\x5cd0$', 'img').test(pstr)) {
+            return (p.toFixed(1))
+        } else {
+            return (p.toFixed(2))
+        }
+    }
+};
+
+function formatDate(time, style) {
+    style = style || '-';
+    if (!time) return ('');;
+    var date = getDate(time.toString().length === 10 ? time * 1000 : time);
+    var mm = date.getMonth() + 1;
+    var dd = date.getDate();
+    return ([date.getFullYear(), (mm > 9 ? '' : '0') + mm, (dd > 9 ? '' : '0') + dd].join(style))
+};
+
+function formatTime(time, format) {
+    if (!time) return ('');;
+    var date = getDate(time.toString().length === 10 ? time * 1000 : time);
+    var t;
+    if (format === 'hh:mm') {
+        t = [(date.getHours() > 9 ? '' : '0') + date.getHours(), (date.getMinutes() > 9 ? '' : '0') + date.getMinutes()].join(':')
+    } else {
+        t = [(date.getHours() > 9 ? '' : '0') + date.getHours(), (date.getMinutes() > 9 ? '' : '0') + date.getMinutes(), (date.getSeconds() > 9 ? '' : '0') + date.getSeconds()].join(':')
+    };
+    return (t)
+};
+module.exports = ({
+    formatPrice: formatPrice,
+    formatProductPrice: formatProductPrice,
+    formatDate: formatDate,
+    formatTime: formatTime,
+});

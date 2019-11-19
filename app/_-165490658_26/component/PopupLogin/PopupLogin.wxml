@@ -1,0 +1,46 @@
+<view class="maskingContainer" wx:if="{{show}}">
+    <view class="maskingContent">
+        <view class="masking"></view>
+        <view bindtap="closeMaskingPanel" class="iconfont icon-22-copy"></view>
+        <view class="formArea">
+            <view class="title">绑定账号</view>
+            <view class="desc">请绑定极客时间账号领取</view>
+            <view class="phonePanel" wx:if="{{!captcha.show}}">
+                <view class="phone">
+                    <view class="phone_country">
+                        <picker bindchange="pickCode" class="zm-cell-input-hd-text" range="{{countryList}}" value="{{0}}">
+                            <text style="color: #636363;">+{{country}}<text class="iconfont icon-arrow-bottom"></text>
+                            </text>
+                        </picker>
+                    </view>
+                    <input bindinput="onPhoneInput" class="inputcss" focus="{{phoneInputFocus}}" placeholder="输入手机号" placeholderStyle="color: #cbcbcb;" type="number" value="{{!!phoneNo?phoneNo:''}}"></input>
+                </view>
+                <view class="vscode">
+                    <view class="vscode_input">
+                        <input bindinput="onSmsInput" class="inputcss" placeholder="输入验证码" placeholderStyle="color: #cbcbcb;" type="number"></input>
+                    </view>
+                    <view class="vscodeBtn" style="background-color: {{isCounting?'#fff':'#ff5a05'}};">
+                        <text class="zm-input-captcha-ft zm-input-ft-counting" style="color: {{isCounting?'#d2d3d5':'#fff'}};" wx:if="{{isCounting}}">{{countingSecond}}秒后重发</text>
+                        <text bindtap="sendBindSMS" class="zm-input-captcha-ft zm-input-ft-button" style="color: {{isCounting?'#fff':'#fff'}};" wx:else>获取验证码</text>
+                    </view>
+                </view>
+                <view bindtap="bindPhone" class="commitMes">领取</view>
+            </view>
+            <view class="imgcheckPanel" wx:elif="{{captcha.show}}">
+                <view class="popup-box">
+                    <view class="popup-hd">我们需要判断你是不是机器人</view>
+                    <view class="popup-bd">
+                        <view class="popup-img-captcha-main">
+                            <input bindinput="onImgCaptchaInput" class="popup-img-captcha-input" placeholder="请输入图形验证码" placeholderStyle="placeholder-color: #cbcbcb;"></input>
+                            <image bindtap="refreshImgCaptcha" class="popup-img-captcha-code" src="data:image/png;base64,{{captcha.img}}"></image>
+                        </view>
+                    </view>
+                    <view class="popup-ft">
+                        <text bindtap="hideImgCaptchaBox" class="popup-button-cancel">取消</text>
+                        <text bindtap="imgCaptchaHandler" class="popup-button-confirm">确认</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

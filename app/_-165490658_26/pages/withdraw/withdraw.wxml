@@ -1,0 +1,35 @@
+<view class="getmoney">
+    <view class="withdraw-info">
+        <view class="withdraw-gray">提现到微信账号</view>
+        <view class="withdraw-user">{{nickname?nickname:'未绑定'}}</view>
+        <button bindgetuserinfo="bind" class="withdraw-bind" openType="getUserInfo">{{authorized?'重新绑定':'立即绑定'}}</button>
+    </view>
+    <view class="mid">
+        <view class="ope">
+            <view class="mony">提现金额</view>
+            <view class="acti clearfix">
+                <view>￥</view>
+                <input autoFocus bindinput="onCashInput" type="digit" value="{{cash}}"></input>
+            </view>
+        </view>
+        <view class="ke">
+            <text class="num">可提现金额：￥{{balance.amount_format}}</text>
+            <text bindtap="inputAllAmount" class="all">全部提现</text>
+        </view>
+        <view class="tip">{{cashTip}}</view>
+        <view bindtap="withdraw" class="get {{authorized&&cash>0?'':'prevent'}}">提现</view>
+    </view>
+    <view class="detail">
+        <view class="know">提现须知</view>
+        <view class="tip">
+            <text space="nbsp">1. 单次提现金额不超过5000元</text>
+        </view>
+        <view class="tip">
+            <text space="nbsp">2. 单日提现次数不超过3次</text>
+        </view>
+        <view class="tip3">
+            <text class="front" space="nbsp">3. 如提现遇到问题，请联系客服 </text>
+            <text class="follow">service@geekbang.org</text>
+        </view>
+    </view>
+</view>

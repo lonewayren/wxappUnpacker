@@ -1,0 +1,5 @@
+<image class="logo" mode="widthFix" src="https://static001.geekbang.org/resource/image/04/63/040b73683b29063fb516b22931066263.png"></image>
+<view class="btns">
+    <button bindgetuserinfo="loginWithWx" class="btn is-primary" openType="getUserInfo">微信登录</button>
+    <button bindtap="loginWithPhone" class="btn" style="margin-top: 34rpx;">手机号登录/注册</button>
+</view>

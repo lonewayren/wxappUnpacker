@@ -1,0 +1,43 @@
+.wvshare-panel {
+    width: 750rpx;
+    height: 100vh;
+    background-image: url("https://static001-test.geekbang.org/resource/image/8b/81/8b1a3a75fd542afad611e0185ba26c81.png");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wvshare-panel .wvshare-panel__bd {
+    width: 464rpx;
+    height: 442rpx;
+    padding: 120rpx 58rpx 107rpx;
+    margin-top: -130rpx;
+    background: white;
+    box-shadow: 0px 3rpx 30rpx 16rpx rgba(243,191,136,0.15);
+    border-radius: 18rpx;
+    text-align: center;
+}
+
+.wvshare-panel .wvshare-panel__bd .wvshare-panel__image {
+    display: block;
+    margin: 0 auto;
+    width: 142rpx;
+    height: 142rpx;
+    border-radius: 71rpx;
+    overflow: hidden;
+    background-color: #FFF;
+}
+
+.wvshare-panel .wvshare-panel__bd .wvshare-panel__text {
+    display: block;
+    color: #fa8919;
+    font-size: 30rpx;
+    margin: 143rpx 0 40rpx;
+}
+
+.wvshare-panel .wvshare-panel__bd .wvshare-panel__btn {
+    width: 100%;
+    background: #fa8919;
+    color: #fff;
+}

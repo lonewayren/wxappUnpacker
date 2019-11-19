@@ -1,0 +1,66 @@
+.likes-container {
+    width: 100%;
+    background-color: #ffffff;
+    border-top-width: 1px;
+    border-top-color: #f1f1f1;
+    border-top-style: solid;
+}
+
+.praise-item {
+    width: 750rpx;
+    height: 158rpx;
+    background-color: #ffffff;
+    padding-top: 35rpx;
+    padding-bottom: 35rpx;
+    padding-left: 40rpx;
+    border-bottom-width: 1px;
+    border-bottom-color: #f1f1f1;
+    border-bottom-style: solid;
+    box-sizing: border-box;
+}
+
+.praise-item-bd {
+    height: 86rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.praise-item-bd .praise-item-bd-cover {
+    width: 86rpx!important;
+    height: 86rpx!important;
+}
+
+.praise-item-bd .praise-item-bd-info {
+    flex: 1;
+    padding-top: 8rpx;
+    padding-bottom: 8rpx;
+    padding-left: 35rpx;
+    font-size: 24rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.praise-item-bd .praise-item-bd-info .praise-item-bd-info-title {
+    color: #353535;
+    font-size: 30.5rpx;
+}
+
+.praise-item-bd .praise-item-bd-info .praise-item-bd-info-column {
+    display: flex;
+    flex-direction: row;
+}
+
+.praise-item-bd .praise-item-bd-info .praise-item-bd-info-column .praise-item-bd-info-column-title {
+    margin-right: 35rpx;
+    color: #888;
+    font-size: 25.5rpx;
+}
+
+.praise-item-bd .praise-item-bd-info .praise-item-bd-info-column .praise-item-bd-info-column-author {
+    color: #888;
+    font-size: 25.5rpx;
+}

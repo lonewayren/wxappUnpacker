@@ -1,0 +1,86 @@
+<view class="wrapper">
+    <view bindtap="introJump" class="banner" data-column="{{data}}" wx:if="{{type!=='trial'}}">
+        <view class="slider-item">
+            <image class="slider-item-image" mode="scaleToFill" src="{{data.column_cover_inner_resize}}"></image>
+            <text class="slider-item-icon-intro iconfont icon-i"></text>
+        </view>
+    </view>
+    <view class="tab" wx:if="{{type!=='trial'&&audioList.length}}">
+        <view bindtap="switchTab" class="tab-item" data-tab="article">
+            <text class="iconfont icon-tuwen tab-item-icon {{tabName=='article'?'tab-item-current-icon':''}}"></text>
+            <text class="tab-item-text {{tabName=='article'?'tab-item-current-text':''}}">看图文</text>
+        </view>
+        <view class="tab-item-border"></view>
+        <view bindtap="switchTab" class="tab-item" data-tab="audio">
+            <text class="iconfont icon-yinpin tab-item-icon {{tabName=='audio'?'tab-item-current-icon':''}}"></text>
+            <text class="tab-item-text {{tabName=='audio'?'tab-item-current-text':''}}">听音频</text>
+        </view>
+    </view>
+    <view class="filter" wx:if="{{totalCount!=0}}">
+        <view class="filter-control">
+            <view class="filter-control-left">
+                <view bindtap="switchOrderBy" class="filter-control-order">
+                    <image class="filter-control-icon" src="/assets/img/order-asc.png" wx:if="{{order[tabName]=='earliest'}}"></image>
+                    <image class="filter-control-icon" src="/assets/img/order-desc.png" wx:else></image>
+                    <text class="filter-control-text" wx:if="{{order[tabName]=='earliest'}}">正序</text>
+                    <text class="filter-control-text" wx:else>倒序</text>
+                </view>
+                <text class="filter-total" wx:if="{{tabName=='article'}}">已更新 {{articlePage.count}} 篇文章</text>
+                <text class="filter-total" wx:else>已更新 {{audioPage.count}} 条音频</text>
+            </view>
+            <view bindtap="changeShowParten" class="filter-control-right" wx:if="{{tabName==='article'}}">
+                <text class="iconfont pattern {{modeArticle==='img'?'icon-xingzhuang16':'icon-xingzhuang17'}}"></text>
+                <text class="show-pattern">{{modeArticle==='img'?'图文模式':'列表模式'}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="content-list">
+        <block wx:if="{{tabName=='article'}}">
+            <block wx:if="{{modeArticle==='img'}}">
+                <view catchtap="jump" class="article-item" data-article="{{data}}" data-index="{{index}}" wx:for="{{articleList}}" wx:for-item="data" wx:key="index">
+                    <view class="article-item-wrapper">
+                        <text class="article-item-title">{{data.article_title}}</text>
+                        <view class="article-item-hd">
+                            <text class="iconfont icon-xingzhuang10 {{data.had_viewed?'article-item-viewed':'article-item-view'}}"></text>
+                            <text class="article-item-time">{{data.article_ctime_format}}</text>
+                        </view>
+                        <image class="article-item-cover" mode="aspectFill" src="{{data.article_cover}}"></image>
+                        <view class="article-item-desc">{{data.article_summary}}</view>
+                        <view class="article-item-more">
+                            <text class="article-item-more-text">阅读全文</text>
+                            <text class="iconfont icon-arrowright1"></text>
+                        </view>
+                    </view>
+                    <image class="article-item-flag-trial" src="/assets/img/article-trial.png" wx:if="{{type&&type==='trial'}}"></image>
+                </view>
+            </block>
+            <view class="list-parten" wx:else>
+                <view bindtap="jump" class="list-parten-item" data-article="{{item}}" data-index="{{index}}" wx:for="{{articleList}}" wx:key="index">
+                    <view class="article-title" style="color: {{item.had_viewed?'#888888':'#000000'}}">{{item.article_title}}</view>
+                    <view class="public-time ">
+                        <text class="iconfont icon-xingzhuang10 icon-eyes" style="color: {{item.had_viewed?'#888888':'#fe6e39'}}"></text>
+                        <text>{{item.article_ctime_format}}</text>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <block wx:if="{{tabName=='audio'}}">
+            <view catchtap="playAudio" class="audio-item" data-audio="{{data}}" data-index="{{index}}" wx:for="{{audioList}}" wx:for-item="data" wx:key="index">
+                <view>
+                    <view class="audio-item-title {{data.audio_md5===curAudioHash?'audio-item-current-title':''}}">{{data.article_title}}</view>
+                    <view class="audio-item-info">
+                        <text class="audio-item-time">{{data.article_ctime_format}}</text>
+                        <text class="audio-item-duration">时长{{data.audio_time_format}}</text>
+                        <text class="audio-item-size">大小{{data.audio_size_format}}</text>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>
+<block wx:if="{{data.column_poster_wxlite}}">
+    <view bindtap="popupShare" class="btn-share {{shareIconAnimate?'is-animate':''}}">
+        <text class="btn-share-icon iconfont icon-share"></text>
+    </view>
+    <action-sheet-share bindselect="selectAction" show="{{showActionSheet}}"></action-sheet-share>
+</block>

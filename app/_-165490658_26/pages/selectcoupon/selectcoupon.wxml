@@ -1,0 +1,24 @@
+<view class="select-wrap">
+    <view class="unuse" vIf="couldSelectCoupon">
+        <view>不使用礼券</view>
+        <view bindtap="select" class="checkbox" data-index="-1">
+            <text class="icon iconfont icon-xingzhuangkaobei2 {{selectedCoupon===-1?'checked':''}}"></text>
+        </view>
+    </view>
+    <view class="card-list" wx:if="{{couponList&&couponList.length>0}}">
+        <view bindtap="select" class="card-wrap {{data.could_selected?'':'disable'}}" data-index="{{index}}" wx:for="{{couponList}}" wx:for-item="data">
+            <view class="card-top">
+                <view>
+                    <view class="card-title">{{data.name}}</view>
+                    <view class="card-subtitle">{{data.desc}}</view>
+                </view>
+                <view class="card-money">
+                    <view class="card-money-icon">¥</view>
+                    <view class="card-money-text">{{data.amount_format}}</view>
+                </view>
+            </view>
+            <view class="card-time">使用时间 {{data.start_time_format}}-{{data.end_time_format}}</view>
+            <view class="card-status" wx:if="{{index===selectedCoupon}}"></view>
+        </view>
+    </view>
+</view>

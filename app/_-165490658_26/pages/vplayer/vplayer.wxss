@@ -1,0 +1,291 @@
+.player-root {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    font-size: 16px;
+}
+
+.player-cover {
+    flex-shrink: 0;
+    height: 520rpx;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-cover-image-wrapper {
+    width: 424rpx;
+    height: 424rpx;
+    box-shadow: 0 0 20rpx rgba(0,0,0,0.2);
+}
+
+.player-cover-image {
+    width: 424rpx;
+    height: 424rpx;
+    background-color: #FFF;
+}
+
+.player-main {
+    flex: 1;
+}
+
+.player-info {
+    padding-left: 62rpx;
+    padding-right: 62rpx;
+    padding-top: 65rpx;
+    padding-bottom: 55rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.player-info-title {
+    color: #353535;
+    font-size: 30rpx;
+    text-align: center;
+}
+
+.player-info-extra {
+    color: #888;
+    font-size: 30rpx;
+    margin-top: 5rpx;
+}
+
+.player-progress {
+    width: 630rpx;
+    margin: 0 auto;
+    height: 102rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.player-progress-text {
+    color: #888;
+    font-size: 18rpx;
+    width: 100rpx;
+}
+
+.player-progress-text.is-right {
+    text-align: right;
+}
+
+.player-progress-bar {
+    width: 250px;
+    height: 2px;
+    border-radius: 1px;
+    position: relative;
+    background-color: #E8E8E8;
+    flex-shrink: 0;
+}
+
+.player-progress-bar-current {
+    height: 2px;
+    border-radius: 1px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #FF5A05;
+}
+
+.player-progress-bar-dotwrapper {
+    height: 2px;
+    width: 300px;
+    margin-left: -25px;
+}
+
+.player-progress-bar-dot {
+    width: 50px;
+    height: 50px;
+    margin-top: -25px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-progress-bar-dot-icon {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #FF5A05;
+}
+
+.player-control {
+    margin-top: 36rpx;
+    margin-bottom: 120rpx;
+    padding-left: 62rpx;
+    padding-right: 62rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.player-control-list {
+    color: #888;
+    font-size: 46rpx;
+}
+
+.player-control-prev,.player-control-next {
+    width: 76rpx;
+    height: 76rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-control-prev-icon,.player-control-next-icon {
+    color: #888;
+    font-size: 38rpx;
+}
+
+.player-control-playstatus {
+    width: 110rpx;
+    height: 110rpx;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2rpx solid #888;
+}
+
+.player-control-play-icon {
+    font-size: 46rpx;
+    padding-top: 1rpx;
+    padding-left: 6rpx;
+}
+
+.player-control-pause-icon {
+    font-size: 46rpx;
+}
+
+.player-buttons {
+    padding-left: 110rpx;
+    padding-right: 110rpx;
+    padding-bottom: 54rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.player-button-praise {
+    position: relative;
+}
+
+.player-button-praise-icon,.player-button-content,.player-button-share,.player-button-list {
+    font-size: 42rpx;
+    position: relative;
+}
+
+.player-button-list {
+    font-size: 32rpx;
+    font-weight: 300;
+}
+
+.player-button-praise-text {
+    width: 55rpx;
+    padding-left: 5rpx;
+    height: 20rpx;
+    font-size: 15rpx;
+    left: 30rpx;
+    bottom: 5rpx;
+    background-color: #FFF;
+    border-radius: 10rpx;
+    position: absolute;
+}
+
+.player-button-share button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.player-list-wrap {
+    position: fixed;
+    top: 100vh;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    transition: top 0.4s;
+    z-index: 1000;
+}
+
+.player-list-wrap.is-hidden {
+    top: 100vh;
+}
+
+.player-list-wrap.is-show {
+    top: 0;
+}
+
+.player-list {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+}
+
+.player-list-hd-text,.player-list-close {
+    height: 100rpx;
+    font-size: 30rpx;
+    line-height: 100rpx;
+    text-align: center;
+    color: #353535;
+}
+
+.player-list-hd-text {
+    border-top: 1px solid #e8e8e8;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.player-list-close {
+    border-top: 1px solid #e8e8e8;
+}
+
+.player-list-bd {
+    height: 40vh;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.player-list-item {
+    height: 120rpx;
+    padding-left: 22rpx;
+    padding-right: 22rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.player-list-item-title {
+    color: #353535;
+    font-size: 26rpx;
+}
+
+.player-list-item-title.is-current {
+    color: #ff5a05;
+}
+
+.player-list-item-ft {
+    margin-top: 10rpx;
+    display: flex;
+}
+
+.player-list-item-time,.player-list-item-size {
+    color: #888;
+    font-size: 22rpx;
+}
+
+.player-list-item-size {
+    margin-left: 18rpx;
+}

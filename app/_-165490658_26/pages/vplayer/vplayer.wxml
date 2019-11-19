@@ -1,0 +1,65 @@
+<view class="player-root">
+    <view bindtap="jumpColumn" class="player-cover" style="background-color: {{player.bgcolor||'#c3aa9c'}}">
+        <view class="player-cover-image-wrapper">
+            <image class="player-cover-image" src="{{player.cover}}"></image>
+        </view>
+    </view>
+    <view class="player-main">
+        <view class="player-info">
+            <view class="player-info-title">{{player.title}}</view>
+            <view class="player-info-extra">{{player.subTitle}}</view>
+        </view>
+        <view class="player-progress">
+            <text class="player-progress-text">{{curTimeFormat}}</text>
+            <view class="player-progress-bar">
+                <view class="player-progress-bar-current" style="width: {{progressOffset?progressOffset+2+'px':0}}"></view>
+                <movable-area class="player-progress-bar-dotwrapper">
+                    <movable-view bindchange="onSlideChange" bindtouchcancel="onSlideOver" bindtouchend="onSlideOver" bindtouchstart="onSlideBegin" class="player-progress-bar-dot" damping="20000" direction="horizontal" x="{{progressDotOffset}}" y="0" wx:if="{{player.hash}}">
+                        <view class="player-progress-bar-dot-icon"></view>
+                    </movable-view>
+                </movable-area>
+            </view>
+            <text class="player-progress-text is-right">{{player.time_format||'00:00'}}</text>
+        </view>
+    </view>
+    <view class="player-control">
+        <text class="iconfont icon-list player-control-list" style="opacity: 0" wx:if="{{true}}"></text>
+        <view bindtap="prev" class="player-control-prev">
+            <text class="iconfont icon-prev player-control-prev-icon"></text>
+        </view>
+        <view bindtap="togglePlay" class="player-control-playstatus">
+            <text class="iconfont icon-play player-control-play-icon" style="color: #FC5B21" wx:if="{{!playing}}"></text>
+            <text class="iconfont icon-pause player-control-pause-icon" style="color: #FC5B21" wx:else></text>
+        </view>
+        <view bindtap="next" class="player-control-next">
+            <text class="iconfont icon-next player-control-next-icon"></text>
+        </view>
+        <text class="iconfont icon-list player-control-list" style="opacity: 0"></text>
+    </view>
+    <view class="player-buttons">
+        <view bindtap="praiseArticle" class="player-button-praise">
+            <text class="iconfont player-button-praise-icon {{player.had_liked?'icon-xin1':'icon-xin'}}" style="color: {{player.had_liked?'#ff5a05':'#353535'}}"></text>
+            <text class="player-button-praise-text" wx:if="{{player.like_count}}">{{player.like_count}}</text>
+        </view>
+        <view bindtap="jumpArticle" class="iconfont icon-doc player-button-content" style="color: #353535"></view>
+        <view bindtap="showPlayList" class="player-button-list iconfont icon-list" style="color: #353535"></view>
+        <view class="iconfont icon-fenxiang1 player-button-share" style="color: #353535">
+            <button openType="share" wx:if="{{player.hash}}"></button>
+        </view>
+    </view>
+</view>
+<view bindtap="hidePlayList" class="player-list-wrap {{showPlayList?'is-show':'is-hidden'}}">
+    <view class="player-list">
+        <view class="player-list-hd-text">共 {{playList.length}} 条音频</view>
+        <view class="player-list-bd">
+            <view catchtap="selectAudio" class="player-list-item" data-index="{{index}}" wx:for="{{playList}}">
+                <view class="player-list-item-title {{item.hash===player.hash?'is-current':''}}">{{item.title}}</view>
+                <view class="player-list-item-ft">
+                    <text class="player-list-item-time">时长 {{item.time_format}}</text>
+                    <text class="player-list-item-size">大小 {{item.size_format}}</text>
+                </view>
+            </view>
+        </view>
+        <view catchtap="hidePlayList" class="player-list-close">关闭</view>
+    </view>
+</view>

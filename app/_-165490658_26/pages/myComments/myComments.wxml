@@ -1,0 +1,41 @@
+<scroll-view scrollY class="likes-container">
+    <view class="comment-block" wx:if="{{commentsData.length>0}}">
+        <view class="praise-item-wrap" wx:for="{{commentsData}}" wx:key="index">
+            <view class="praise-item">
+                <view class="handle">
+                    <text class="title">留言 · {{item.comment_ctime}}  <text class="dianzan">赞</text>  {{item.like_count}} </text>
+                    <view class="iconarea">
+                        <text bindtap="del" class="iconfont icon-delicon delicon" data-comments="{{item}}" data-order="{{index}}"></text>
+                        <text bindtap="sharecomment" class="iconfont icon-share1 shareicon" data-comments="{{item}}" data-order="index"></text>
+                    </view>
+                </view>
+                <view bindtap="jumpDetail" class="content" data-content="{{item}}">
+                    <text class="text-content">{{item.comment_content}}</text>
+                </view>
+                <view class="original">
+                    <view bindtap="jump" class="title" data-comments="{{item}}">
+                        <text class="iconfont icon-xingzhuang8 {{item.source==='course'?'icon-video-':'bookicon'}}"></text>
+                        <text class="title-text">{{item.article_title}}</text>
+                        <text class="iconfont icon-arrowright1 arrowright"></text>
+                    </view>
+                    <view bindtap="jumpDetail" class="has-reply" data-content="{{item}}" wx:if="{{item.replies&&item.replies[0]}}">
+                        <view class="who-reply">
+                            <text class="iconfont author-icon icon-line"></text>
+                            <text class="author">{{item.replies[0].user_name||'作者回复'}}</text>
+                        </view>
+                        <view class="reply-content">
+                            <text class="reply-text">{{item.replies[0].content}}</text>
+                        </view>
+                        <view class="reply-time">
+                            <text class="times">{{item.replies[0].ctime}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="nocomments" wx:else>
+        <image class="none-icon" src="https://static001.geekbang.org/resource/image/1b/dd/1b1f103b20b6b0ec528b14972e9e3fdd.png"></image>
+        <view class="text">暂无留言</view>
+    </view>
+</scroll-view>

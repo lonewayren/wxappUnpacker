@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "极客时间",
+    "enablePullDownRefresh": true,
+    "disableScroll": false,
+    "usingComponents": {
+        "audio-icon": "/component/AudioIcon/AudioIcon"
+    }
+}

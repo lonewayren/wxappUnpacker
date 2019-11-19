@@ -1,0 +1,73 @@
+<swiper skipHiddenItemLayout bindchange="onSwiperChange" class="explore-swiper" duration="200" nextMargin="30px" previousMargin="30px">
+    <swiper-item class="swiper-item-wrap" wx:for="{{columns}}">
+        <view bindtap="toInfoPage" class="swiper-item swiper-item-links" data-column="{{item}}" wx:if="{{item.card_type==='topic'}}">
+            <image class="swiper-item-links-cover" mode="aspectFill" src="{{item.cover}}"></image>
+            <view class="swiper-item-count" wx:if="{{!!item.description}}">
+                <text class="iconfont icon-people2 icon" style="color: #fff;"></text>
+                <text class="desc" space="nbsp" style="color: #fff;">{{item.description}}</text>
+            </view>
+            <view class="tagwrap" wx:if="{{!!item.tag}}">{{item.tag}}</view>
+        </view>
+        <view bindtap="toInfoPage" class="swiper-item swiper-item-links" data-column="{{item}}" wx:elif="{{item.card_type==='comment'}}">
+            <image class="swiper-item-links-cover" mode="aspectFill" src="{{item.cover}}"></image>
+            <view class="swiper-item-count" wx:if="{{!!item.description}}">
+                <text class="iconfont icon-people2 icon" style="color: #fff;"></text>
+                <text class="desc" space="nbsp" style="color: #fff;">{{item.description}}</text>
+            </view>
+            <view class="tagwrap" wx:if="{{!!item.tag}}">{{item.tag}}</view>
+        </view>
+        <view bindtap="toInfoPage" class="swiper-item swiper-item-ad" data-column="{{item}}" wx:elif="{{item.card_type==='book'}}">
+            <image class="swiper-item-ad-poster" src="{{item.cover}}"></image>
+            <view class="swiper-item-ad-title">{{item.title}}</view>
+            <view class="swiper-item-ad-desc">{{item.subtitle}}</view>
+            <view class="swiper-item-ad-pre {{isIOS?'is-ios':''}}"> 原价: ¥{{item.column_price_market}} </view>
+            <view class="swiper-item-ad-getit">{{item.had_sub?'开始阅读':' 免费领取'}}</view>
+            <view class="swiper-item-count" wx:if="{{!!item.description}}">
+                <text class="iconfont icon-people2 icon"></text>
+                <text space="nbsp">
+                    <text class="swiper-item-count-num">{{item.description}}</text>
+                </text>
+            </view>
+            <view catchtap="jumpExplorebook" class="topright"></view>
+        </view>
+        <view bindtap="toInfoPage" class="swiper-item swiper-item-links" data-column="{{item}}" wx:elif="{{item.card_type==='col'}}">
+            <image class="swiper-item-links-cover" mode="aspectFill" src="{{item.cover}}"></image>
+            <view class="swiper-item-count" wx:if="{{!!item.description}}">
+                <text class="iconfont icon-people2 icon" style="color: #fff;"></text>
+                <text class="desc" space="nbsp" style="color: #fff;">{{item.description}}</text>
+            </view>
+            <view class="tagwrap" wx:if="{{!!item.tag}}">{{item.tag}}</view>
+        </view>
+        <view bindtap="toInfoPage" class="swiper-item" data-column="{{item}}" wx:elif="{{item.card_type==='article'}}">
+            <view class="swiper-item-cover" style="background-image:url('{{item.article_cover}}')">
+                <view class="swiper-item-cover-mask"></view>
+                <view class="swiper-item-atitle">{{item.article_title}}</view>
+                <view class="swiper-item-tag" wx:if="{{item.tag}}">{{item.tag}}</view>
+                <image class="swiper-item-cover-arc" mode="scaleToFill" src="./assets/arc.png"></image>
+            </view>
+            <view class="swiper-item-avatar-wrap">
+                <image class="swiper-item-avatar" mode="scaleToFill" src="{{item.author_header}}"></image>
+            </view>
+            <view class="swiper-item-aname">{{item.author_name}}</view>
+            <view class="swiper-item-aintro">{{item.author_intro}}</view>
+            <view class="swiper-item-line"></view>
+            <view class="swiper-item-ctitle">{{item.column_title}}</view>
+            <view class="swiper-item-cintro">{{item.column_subtitle}}</view>
+            <view class="swiper-item-paid {{isIOS?'is-ios':''}}" wx:if="{{item.had_sub}}">
+          已订阅
+        </view>
+            <view class="swiper-item-price {{isIOS?'is-ios':''}}" wx:else>￥{{item.column_price/100}} <block wx:if="{{item.column_unit}}">/ {{item.column_unit}}</block>
+            </view>
+            <view class="swiper-item-count" wx:if="{{!!item.description}}">
+                <text class="iconfont icon-people2 icon"></text>
+                <text space="nbsp">
+                    <text class="swiper-item-count-num">{{item.description}}</text>
+                </text>
+            </view>
+        </view>
+    </swiper-item>
+</swiper>
+<view class="explore-pagination" wx:if="{{columns.length}}">
+    <text class="cur" space="nbsp">{{current+1}}</text>/{{columns.length}}
+</view>
+<audio-icon data="{{audioIcon}}"></audio-icon>

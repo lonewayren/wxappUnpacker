@@ -1,0 +1,28 @@
+<view catchtap="jump" class="column-item" data-column="{{data}}">
+    <view class="column-item-bd">
+        <view class="column-item-bd-info">
+            <view class="column-item-bd-info-hd">
+                <view class="column-item-author">
+                    <view class="column-item-author-avatar">
+                        <image class="column-item-author-avatar-image" src="{{data.author_header}}"></image>
+                    </view>
+                    <view class="column-item-author-info">
+                        <view class="column-item-author-name">{{data.author_name}}</view>
+                        <view class="column-item-author-intro">{{data.author_intro}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class="column-item-bd-info-bd">
+                <text class="column-item-bd-info-bd-title">{{data.column_title}}</text>
+                <text class="column-item-bd-info-bd-desc">{{data.column_subtitle}}</text>
+            </view>
+        </view>
+        <image class="column-item-cover" src="{{data.column_cover}}"></image>
+    </view>
+    <view class="column-item-ft" wx:if="{{type!=='bought'}}">
+        <view class="column-item-ft-split"></view>
+        <view class="column-item-ft-text column-item-ft-sub" wx:if="{{false}}">已订阅</view>
+        <view class="column-item-ft-price">{{data.is_preorder?'预售:':''}} ¥ {{data.column_price/100}}{{data.column_unit?' / '+data.column_unit:''}}</view>
+        <view class="column-item-ft-text">{{data.update_frequency||'每周三／周五上新'}}</view>
+    </view>
+</view>

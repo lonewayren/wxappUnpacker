@@ -1,0 +1,33 @@
+<view class="{{fix?'video-wrapper-fix':'video-wrappper'}}">
+    <div><a href="https://m3u8play.com/?play={{videoSrc}}"><p>{{videoSrc}}</p></a></div>
+    <cover-view class="mask" hidden="{{status==='video'}}" wx:if="{{status!=='video'}}">
+        <cover-view class="finish-control" wx:if="{{status==='next'}}">
+            <cover-view bindtap="replay" class="finish-control-btn">
+                <cover-image class="icon" src="./replay.png"></cover-image>
+                <cover-view>重新播放</cover-view>
+            </cover-view>
+            <cover-view bindtap="cancelNext" class="finish-control-btn is-next" wx:if="{{showCancelNext}}">
+                <cover-image class="icon" src="./replay.png"></cover-image>
+                <cover-view>取消({{second}}s)</cover-view>
+            </cover-view>
+        </cover-view>
+        <cover-view class="prompt" wx:if="{{status==='wifi'}}">
+            <cover-view class="p is-first">当前为非 Wi-Fi 环境</cover-view>
+            <cover-view class="p">继续播放会被运营商收取流量费用</cover-view>
+            <cover-view class="div">
+                <cover-view bindtap="continuePlay" class="btn first">继续播放</cover-view>
+                <cover-view bindtap="ignoreWifiTips" class="btn is-revert">不再提示</cover-view>
+            </cover-view>
+        </cover-view>
+        <cover-view class="prompt" wx:if="{{status==='buy'}}">
+            <cover-view class="p">当前视频不支持试看，请订阅后再看</cover-view>
+            <cover-view bindtap="continuePlay" class="p" wx:if="{{!login}}">若已订阅，请
+        <cover-view bindtap="subscribe" class="p-login" style="margin-left: 2em;">登录</cover-view>
+            </cover-view>
+            <cover-view class="div">
+                <cover-view bindtap="subscribe" class="btn first">加入学习</cover-view>
+            </cover-view>
+        </cover-view>
+    </cover-view>
+    <cover-view class="title">{{title}}</cover-view>
+</view>

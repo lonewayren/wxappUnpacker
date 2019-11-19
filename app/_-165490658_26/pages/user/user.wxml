@@ -1,0 +1,47 @@
+<view class="wraper">
+    <view class="user">
+        <image class="user-avatar" src="{{loginUser.avatar}}" wx:if="{{loginUser.avatar}}"></image>
+        <image class="user-avatar" src="https://static001.geekbang.org/resource/image/5e/85/5eb3386dea85a21b34f1a73d2c149885.png" wx:else></image>
+        <view bindtap="login">
+            <view class="user-nologin" wx:if="{{!loginUser.uid}}">
+                <i class="icon iconfont icon-arrowright1" style="opacity: 0"></i>
+        {{'登录/注册'}}
+        <i class="icon iconfont icon-arrowright1"></i>
+            </view>
+            <view class="user-btn-bind" wx:if="{{!loginUser.uid}}">
+                <text>注册领30元新人券</text>
+            </view>
+        </view>
+        <view class="user-login" wx:if="{{loginUser.uid}}">
+            <text class="name">{{loginUser.nickname}}</text>
+            <view class="phone">
+                <text class="num">{{loginUser.cellphone}}</text>
+            </view>
+        </view>
+    </view>
+    <view wx:for="{{list}}" wx:for-item="group">
+        <view class="zm-cells">
+            <view bindtap="handleItemClick" class="zm-cell" data-item="{{item}}" hoverClass="zm-cell-hover" hoverStartTime="0" hoverStayTime="0" wx:if="{{item.hideInReview!==true&&item.display}}" wx:for="{{group}}" wx:for-index="idx">
+                <view class="zm-cell-main {{idx>0?'zm-cell-main-border':''}}">
+                    <text class="zm-cell-hd-icon iconfont {{item.icon}}" style="color: {{item.color}}" wx:if="item.icon"></text>
+                    <text class="zm-cell-bd-text">{{item.title}}</text>
+                    <view class="zm-cell-ft">
+                        <text class="zm-cell-ft-text" style="color: {{item.ftColor?item.ftColor:'#888'}}" wx:if="item.ftText">{{item.ftText}}</text>
+                        <text class="zm-cell-ft-icon iconfont icon-arrowright1"></text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="zm-cells" wx:if="{{loginUser.uid}}">
+        <view bindtap="login" class="zm-cell" hoverClass="zm-cell-hover" hoverStartTime="0" hoverStayTime="0">
+            <view class="zm-cell-main">
+                <text class="zm-cell-hd-icon iconfont icon-change" style="color: #ffc131"></text>
+                <text class="zm-cell-bd-text">切换账号</text>
+                <view class="zm-cell-ft">
+                    <text class="zm-cell-ft-icon iconfont icon-arrowright1"></text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

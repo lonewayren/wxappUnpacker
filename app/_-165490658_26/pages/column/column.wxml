@@ -1,0 +1,147 @@
+<template name="btn-primary">
+    <view bindtap="subscribe" class="button button-primary">
+        <view>{{CommonUtils.formatProductPrice(data.is_preorder,data.column_price_market,data.column_price)}}</view>
+        <view class="button-text is-del" wx:if="{{data.column_price_market>data.column_price}}">¥{{CommonUtils.formatPrice(data.column_price_market)}}</view>
+    </view>
+</template>
+<image class="banner" src="{{data.column_cover_inner}}" wx:if="{{data.column_cover_inner}}"></image>
+<import src="/component/wxParse/wxParse.wxml"></import>
+<view class="column-main">
+    <view class="author">
+        <view class="author-avatar">
+            <image alt="" class="author-avatar-img" src="{{data.author_header}}"></image>
+        </view>
+        <view class="author-info">
+            <view class="h3">
+                <text class="span">{{data.sub_count?data.sub_count:1}}人订阅</text>{{data.author_name}}</view>
+            <view class="p">{{data.author_intro}}</view>
+        </view>
+    </view>
+    <view class="course-group" wx:if="{{data.groupbuy_list&&data.groupbuy_list.length&&!data.had_sub&&!(data.groupbuy&&data.groupbuy.had_join)&&!isIOS}}">
+        <view class="group-hd">
+            <view bindtap="gotoGroupRule">
+                <text class="iconfont icon-iconfontxiaogantanhao"></text> 拼团须知</view>
+            <view bindtap="showAllGroups" wx:if="{{data.groupbuy_list.length>2}}">查看更多 <text class="iconfont icon-arrowright1 arrow"></text>
+            </view>
+        </view>
+        <view class="group-bd {{'is-'+data.groupbuy_list.length}}">
+            <view class="group-item" wx:for="{{data.groupbuy_list}}">
+                <image class="group-item-avatar" src="{{item.host_avatar}}"></image>
+                <view class="group-item-bd">
+                    <view>{{item.host_nickname}}</view>
+                    <view class="group-item-info">还差 <text class="em">{{item.want_ucount}}</text> 人成团，剩余 <text class="em">{{time.successTime(item.left_seconds)}} </text>结束</view>
+                </view>
+                <view bindtap="gotoGroup" class="group-item-btn" data-code="{{item.code}}">去参团</view>
+            </view>
+        </view>
+    </view>
+    <view class="gk-tabs">
+        <view bindtap="switchType" class="gk-tab {{show==='info'?'is-active':''}}" data-type="info">专栏介绍</view>
+        <view bindtap="switchType" class="gk-tab {{show==='table'?'is-active':''}}" data-type="table">
+      专栏目录<view class="course-tab-tip" hidden="{{show!=='info'||data.had_sub}}">试读</view>
+        </view>
+    </view>
+    <view class="course-tab-view" hidden="{{show!=='info'}}">
+        <view class="course-block">
+            <view class="block-content gk-content">
+                <template is="wxParse" data="{{wxParseData:content.nodes}}"></template>
+            </view>
+        </view>
+    </view>
+    <view class="course-tab-view" hidden="{{show==='info'}}">
+        <view class="table-item-wrap" wx:for="{{listData}}">
+            <view bindtap="gotoArticle" class="table-item" data-item="{{item}}">
+                <view class="table-item-text">
+                    <view class="table-item-text-subtitle">{{item.article_title}}</view>
+                </view>
+                <view class="table-item-right" wx:if="{{!data.had_sub}}">
+                    <text class="table-item-right-free" wx:if="{{!data.had_sub&&item.article_could_preview}}">试读</text>
+                    <text class="iconfont lock icon-lock" wx:if="{{!data.had_sub&&!item.article_could_preview}}"></text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<block wx:if="{{data.column_poster_wxlite}}">
+    <view bindtap="popupShare" class="share-icon-wrap {{shareIconAnimate?'animate-rotate':''}}">
+        <text class="share-icon iconfont icon-share"></text>
+    </view>
+    <action-sheet-share bindselect="selectAction" show="{{showActionSheet}}"></action-sheet-share>
+</block>
+<view class="bottom" wx:if="{{data.is_shareget}}">
+    <view bindtap="readBook" class="button button-primary" wx:if="{{data.had_sub}}">开始阅读</view>
+    <view class="button button-cancel" wx:elif="{{data.is_onborad===false}}">已下架</view>
+    <view class="button button-primary" wx:elif="{{!ifShared}}">推荐给好友，免费领取<button openType="share"></button>
+    </view>
+    <view bindtap="readBook" class="button button-primary" wx:else>立即领取</view>
+</view>
+<view class="bottom" wx:else>
+    <view bindtap="gotoStudyList" class="button button-primary" wx:if="{{data.had_sub===true}}">查看专栏</view>
+    <block wx:if="{{data.had_sub===false&&!isIOS}}">
+        <view class="button button-cancel" wx:if="{{data.is_onborad===false}}">已下架</view>
+        <block wx:if="{{data.is_onborad}}">
+            <view bindtap="gotogroupbuy" class="button button-primary" wx:if="{{data.groupbuy&&data.groupbuy.had_join}}">
+                <text class="is-groupjoined">已参与拼团，查看拼团进度</text>
+            </view>
+            <block wx:elif="{{joingroupbuy.code}}">
+                <view bindtap="subscribe" class="button button-cancel" data-type="3">
+                    <view class="button-text is-big is-orange">¥{{CommonUtils.formatPrice(joingroupbuy.price)}}</view>
+                    <view class="button-text is-groupcount">加入拼团</view>
+                </view>
+                <template is="btn-primary" data="{{data:data}}"></template>
+            </block>
+            <block wx:elif="{{data.groupbuy&&!data.groupbuy.had_join}}">
+                <view bindtap="subscribe" class="button button-cancel" data-type="2" wx:if="{{!joingroupbuy.code}}">
+                    <view class="button-text is-big is-orange">¥{{CommonUtils.formatPrice(data.groupbuy.price)}}</view>
+                    <view class="button-text is-groupcount">{{data.groupbuy.success_ucount}}人成团</view>
+                </view>
+                <template is="btn-primary" data="{{data:data}}"></template>
+            </block>
+            <template is="btn-primary" data="{{data:data}}" wx:elif="{{!data.groupbuy}}"></template>
+        </block>
+    </block>
+    <view class="button button-cancel is-ios" wx:if="{{data.had_sub===false&&isIOS}}">由于相关规范，iOS 用户暂不可在小程序内订阅</view>
+</view>
+<subscribe-tip bind:hide="hideReview" show="{{showReview}}"></subscribe-tip>
+<action-sheet-share actions="{{payActions}}" bindselect="selectPayAction" show="{{showPayAction}}"></action-sheet-share>
+<view catch:touchmove="disableScroll" class="gk-mask" hidden="{{!showAllGroup}}">
+    <view class="popup-group" wx:if="{{data.groupbuy_list&&data.groupbuy_list.length}}">
+        <view catchtap="hideAllGroups" class="popup-gr-close iconfont icon-22-copy"></view>
+        <view class="popup-gr-hd">正在开团</view>
+        <scroll-view scrollY class="popup-gr-bd">
+            <view class="group-item has-line {{index===0?'is-first':''}}" wx:for="{{data.groupbuy_list}}">
+                <image class="group-item-avatar" src="{{item.host_avatar}}"></image>
+                <view class="group-item-bd">
+                    <view>{{item.host_nickname}}</view>
+                    <view class="group-item-info">还差 <text class="em">{{item.want_ucount}}</text> 人成团，剩余 <text class="em">{{time.successTime(item.left_seconds)}} </text>结束</view>
+                </view>
+                <view bindtap="gotoGroup" class="group-item-btn" data-code="{{item.code}}">去参团</view>
+            </view>
+        </scroll-view>
+        <view class="popup-gr-ft">最多显示10个团</view>
+    </view>
+</view>
+<wxs module="time">
+var hour = (function(t) {
+    if (!t) return ('00');;
+    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+    return (hours >= 10 ? hours : '0' + hours.toString())
+});
+var min = (function(t) {
+    if (!t) return ('00');;
+    var minutes = Math.floor((t / 1000 / 60) % 60);
+    return (minutes >= 10 ? minutes : '0' + minutes.toString())
+});
+var sec = (function(t) {
+    if (!t) return ('00');;
+    var seconds = Math.floor((t / 1000) % 60);
+    return (seconds >= 10 ? seconds : '0' + seconds.toString())
+});
+module.exports.successTime = (function(s) {
+    var ms = s * 1000;
+    var days = Math.floor(ms / (1000 * 60 * 60 * 24));
+    days = days > 0 ? days + '天' : '';
+    return (days + hour(ms) + ':' + min(ms) + ':' + sec(ms))
+});
+</wxs>
+<wxs module="CommonUtils" src="../../utilswxs/index.wxs" />

@@ -1,0 +1,299 @@
+page {
+    background-color: #f8f8f8;
+}
+
+.explore-swiper {
+    width: 100vw;
+    height: 100vh;
+}
+
+.swiper-item-wrap {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-top: 5.8vh;
+    overflow: visible;
+}
+
+.swiper-item {
+    width: 78vw;
+    height: 81.78vh;
+    border-radius: 2vw;
+    text-align: center;
+    box-shadow: 0px 0px 6.04vw -2.415vw rgba(140,163,191,0.5);
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    background-color: #fff;
+}
+
+.swiper-item-ad {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    padding-top: 6.1vh;
+    position: relative;
+}
+
+.swiper-item-ad-poster {
+    width: 280rpx;
+    height: 396rpx;
+    box-shadow: 0px 0px 6.04vw -2.415vw #8ca3bf;
+    z-index: 1;
+}
+
+.swiper-item-ad-title {
+    font-size: 21px;
+    padding-top: 2.5vh;
+    color: #353535;
+}
+
+.swiper-item-ad-desc {
+    font-size: 13px;
+    padding-top: 1.5vh;
+    color: #aaaaaa;
+}
+
+.swiper-item-ad-pre {
+    padding-top: 5vh;
+    font-size: 13px;
+    color: #ff5a05;
+    text-decoration: line-through;
+}
+
+.swiper-item-ad-getit {
+    width: 42.67vw;
+    height: 5.6vh;
+    margin-top: 1.6vh;
+    background-color: #fa8919;
+    color: #fef9f5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    border-radius: 3px;
+}
+
+.topright {
+    width: 133rpx;
+    height: 134rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 12rpx;
+    z-index: 0;
+    background-image: url("https://static001.geekbang.org/resource/image/ea/c5/eaa5c1f25e0ebf8e039e302e00ea89c5.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.swiper-item-cover {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: 38.53%;
+    padding-top: 12.8vh;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.swiper-item-cover-arc {
+    width: 100%;
+    left: 0vw;
+    height: 7.8vw;
+    position: absolute;
+    bottom: 0;
+    display: block;
+}
+
+.swiper-item-cover-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    z-index: -1;
+}
+
+.swiper-item-atitle {
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+    white-space: nowrap;
+    width: 80%;
+    margin: 0 auto;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.swiper-item-tag {
+    position: absolute;
+    top: 10.86%;
+    right: 0;
+    background-color: #fa8919;
+    color: #fff;
+    font-size: 15px;
+    height: 23px;
+    line-height: 23px;
+    padding: 0 6px 0 14px;
+    border-radius: 14px 0 0 14px;
+    letter-spacing: 1px;
+}
+
+.swiper-item-avatar-wrap {
+    margin: -15.9vw auto 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.swiper-item-avatar {
+    box-sizing: border-box;
+    width: 21.46vw;
+    height: 21.46vw;
+    border-radius: 50%;
+    border: 1.06vw solid #fff;
+    vertical-align: bottom;
+}
+
+.swiper-item-aname {
+    font-size: 18px;
+    line-height: 1;
+    margin-top: 1.83%;
+    color: #353535;
+}
+
+.swiper-item-aintro,.swiper-item-cintro {
+    line-heith: 1;
+    color: #888;
+    width: 70%;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.swiper-item-aintro {
+    margin: 2.6% auto 0 auto;
+    font-size: 13px;
+}
+
+.swiper-item-cintro {
+    margin: 3.55% auto;
+    font-size: 12px;
+}
+
+.swiper-item-line {
+    width: 17.7%;
+    background-color: #ff5a05;
+    height: 4px;
+    border-radius: 4px;
+    margin: 10.4% auto 6.2% auto;
+}
+
+.swiper-item-ctitle {
+    font-size: 21px;
+    line-height: 1;
+    color: #353535;
+}
+
+.swiper-item-price,.swiper-item-paid {
+    font-size: 15px;
+}
+
+.swiper-item-price {
+    position: relative;
+    left: -5px;
+    color: #ff5a05;
+}
+
+.swiper-item-paid {
+    color: #aaa;
+}
+
+.swiper-item-count {
+    position: absolute;
+    bottom: 4%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    color: #aaa;
+}
+
+.swiper-item-count .icon {
+    font-size: 10px;
+    line-height: 1;
+    color: #b2b2b2;
+    position: relative;
+    top: 0px;
+    margin-right: 8px;
+}
+
+.swiper-item-count-num {
+    margin: 0 6px 0 0;
+}
+
+.explore-pagination {
+    position: absolute;
+    height: 11.42vh;
+    bottom: 1vh;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 300;
+    font-size: 14px;
+    color: #888;
+    letter-spacing: 2px;
+}
+
+.explore-pagination .cur {
+    color: #ff5a05;
+}
+
+.swiper-item-links {
+    position: relative;
+}
+
+.swiper-item-links .swiper-item-links-cover {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.swiper-item-links .tagwrap {
+    position: absolute;
+    top: 37rpx;
+    right: 0;
+    background-color: #fa8919;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 50rpx;
+    font-size: 30rpx;
+    padding-left: 30rpx;
+    padding-right: 15rpx;
+    border-top-left-radius: 25rpx;
+    border-bottom-left-radius: 25rpx;
+}
+
+.desc {
+    font-size: 13px;
+    color: #ffffff;
+}
+
+.is-ios {
+    opacity: 0;
+}

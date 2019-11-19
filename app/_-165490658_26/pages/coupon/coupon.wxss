@@ -1,0 +1,140 @@
+page {
+    background-color: #f8f8f8;
+}
+
+.history {
+    font-size: 12.5px;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ff5a05;
+}
+
+.history-cutting {
+    color: #ccc;
+}
+
+.rule {
+    text-align: center;
+    font-size: 14px;
+    line-height: 40px;
+    color: #888888;
+    margin-top: 20px;
+}
+
+.rule .icon {
+    font-size: 14px;
+}
+
+.coupon-list {
+    padding: 4vh 0;
+    min-height: 85vh;
+    box-sizing: border-box;
+}
+
+.coupon-item {
+    margin-bottom: 10px;
+}
+
+.card-wrap {
+    width: 90vw;
+    box-sizing: border-box;
+    margin: 0 auto;
+    background-color: #fff;
+    border-left-width: 4px;
+    border-left-style: solid;
+    border-left-color: #fddbb6;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: space-between;
+}
+
+.disableCard {
+    border-left-color: #e8e8e8;
+}
+
+.disableCard .coupon-icon {
+    color: #e8e8e8;
+}
+
+.disableCard .coupon-money {
+    color: #e8e8e8;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+}
+
+.right {
+    padding-top: 15px;
+    padding-right: 23.5px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+}
+
+.coupon-title {
+    font-size: 17px;
+    margin-bottom: 7.5px;
+    color: #353535;
+}
+
+.coupon-subtitle {
+    font-size: 11px;
+    color: #353535;
+}
+
+.coupon-time {
+    font-size: 11px;
+    color: #353535;
+}
+
+.coupon-icon {
+    font-size: 17px;
+    color: #fbb057;
+}
+
+.coupon-money {
+    font-size: 30px;
+    color: #fbb057;
+    margin-top: -5px;
+    line-height: 1;
+}
+
+.coupon-status {
+    display: flex;
+    position: absolute;
+    bottom: -14px;
+    right: -30px;
+    width: 80px;
+    height: 50px;
+    background-color: #fbb057;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(-45deg);
+}
+
+.disableSt {
+    background-color: #f8f8f8;
+}
+
+.coupon-status-text {
+    font-size: 11px;
+    position: relative;
+    top: -11px;
+    color: #fff;
+}
+
+.disable {
+    color: #d9d9d9;
+}

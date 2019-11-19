@@ -1,0 +1,25 @@
+<view class="gk-tabs">
+    <view bindtap="switchType" class="gk-tab {{type===1?'is-active':''}}" data-type="1">订阅专栏</view>
+    <view bindtap="switchType" class="gk-tab {{type===3?'is-active':''}}" data-type="3">视频课程</view>
+    <view bindtap="switchType" class="gk-tab {{type===2?'is-active':''}}" data-type="2">精品微课</view>
+</view>
+<view class="column-list">
+    <view bindtap="jump" class="column-item" data-item="{{item}}" wx:for="{{columns[type]}}" wx:key="index">
+        <view class="column-item-bn" style="background-image: url('{{item.column_cover}}')">
+            <view class="column-item-frequency" wx:if="{{item.update_frequency}}">{{item.update_frequency}}</view>
+        </view>
+        <view class="column-item-ft">
+            <view class="column-item-ft-count">
+                <text class="icon iconfont icon-people2"></text>
+                <text>{{item.sub_count>0?item.sub_count:1}} 人与你共同学习</text>
+            </view>
+            <view class="column-item-ft-split">|</view>
+            <view wx:if="{{item.had_sub}}">已订阅</view>
+            <view wx:else>
+                <text class="column-item-price" space="nbsp" wx:if="{{!isIOS}}">{{item.is_preorder?'预售 ':item.column_price_market>item.column_price?'限时 ':''}}¥{{item.column_price/100}}</text>
+                <text wx:if="{{item.column_unit}}"> {{!isIOS?'/':''}} {{item.column_unit}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+<audio-icon data="{{audioIcon}}"></audio-icon>

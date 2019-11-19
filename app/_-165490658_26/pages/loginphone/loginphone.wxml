@@ -1,0 +1,43 @@
+<view class="container">
+    <view class="zm-cells">
+        <view class="zm-cell-input">
+            <picker bindchange="pickCode" class="zm-cell-input-country" range="{{countryList}}" value="{{0}}">
+                <text>+</text>
+                <text>{{country}}</text>
+                <text class="iconfont icon-arrow-bottom"></text>
+            </picker>
+            <input focus bindinput="onPhoneInput" class="zm-cell-input-bd-text" placeholder="请输入手机号" placeholderStyle="color: #D9D9D9;" style="margin-left: 36rpx" type="number"></input>
+        </view>
+        <view class="zm-cell-input" style="margin-top: 40rpx" wx:if="{{type==='sms'}}">
+            <input bindinput="onSmsInput" class="zm-cell-input-bd-text" placeholder="请输入短信验证码" placeholderStyle="color: #D9D9D9;" type="number"></input>
+            <text class="zm-input-captcha-ft zm-input-ft-counting" wx:if="{{isCounting}}">{{countingSecond}}秒后重发</text>
+            <text bindtap="sendBindSMS" class="zm-input-captcha-ft zm-input-ft-button {{isSendingRequest?'is-sending':''}}" wx:else>获取验证码</text>
+        </view>
+        <view class="zm-cell-input" style="margin-top: 40rpx" wx:if="{{type==='pass'}}">
+            <input bindinput="onPassInput" class="zm-cell-input-bd-text" password="{{!showPass}}" placeholder="请输入密码" placeholderStyle="color: #D9D9D9;"></input>
+            <view bindtap="toggleShowPass" class="zm-cell-input-showpass">
+                <text class="iconfont {{showPass?'icon-open-eye':'icon-close-eye'}}"></text>
+            </view>
+        </view>
+    </view>
+    <view bindtap="login" class="btn is-primary">立即登录</view>
+    <view class="switch">
+        <text bindtap="switchType">{{type==='sms'?'账号密码登录':'免密登录'}}</text>
+    </view>
+</view>
+<view class="popup-wrapper" wx:if="{{captcha.show}}">
+    <view class="popup-mask"></view>
+    <view class="popup-box">
+        <view class="popup-hd">我们需要判断你是不是机器人</view>
+        <view class="popup-bd">
+            <view class="popup-img-captcha-main">
+                <input bindinput="onImgCaptchaInput" class="popup-img-captcha-input" placeholder="请输入图形验证码" placeholderStyle="placeholder-color: #888;"></input>
+                <image bindtap="refreshImgCaptcha" class="popup-img-captcha-code" src="data:image/png;base64,{{captcha.img}}"></image>
+            </view>
+        </view>
+        <view class="popup-ft">
+            <text bindtap="hideImgCaptchaBox" class="popup-button-cancel">取消</text>
+            <text bindtap="imgCaptchaHandler" class="popup-button-confirm">确认</text>
+        </view>
+    </view>
+</view>

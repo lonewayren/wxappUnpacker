@@ -1,0 +1,33 @@
+<view class="fa">
+    <view class="reward">
+        <view class="container">
+            <view bindtap="cashdeatil" class="detail">明细</view>
+        </view>
+        <view class="mon clearfix">
+            <view class="le">
+                <view class="ca">现金奖励</view>
+                <view class="num">¥ {{balance.amount_format}}</view>
+            </view>
+            <view class="ri">
+                <view bindtap="withdraw" class="get {{balance.amount_format==='0.00'?'prevent':''}}">提现</view>
+            </view>
+        </view>
+    </view>
+    <view class="ti">{{list.length===0?'无':''}}可分享内容</view>
+    <view class="column-list" wx:if="{{list.length>0}}">
+        <view class="li" wx:if="{{item.had_sub}}" wx:for="{{list}}">
+            <view class="info">
+                <view class="h2">{{item.column_title}}</view>
+                <view class="p">
+                    <text class="price" space="nbsp">¥ {{item.column_price_format}}{{item.column_unit?'/'+item.column_unit:''}}</text>
+                    <text class="tips" space="nbsp">成功邀请得{{item.sharesale_back_amount_format}}元</text>
+                </view>
+            </view>
+            <view class="control">
+                <view bindtap="getPoster" class="button" data-sku="{{item}}" wx:if="{{item.had_sub}}">获取海报</view>
+            </view>
+        </view>
+    </view>
+    <view class="none" wx:if="{{list.length===0}}">订阅专栏或视频课程才能分享返现</view>
+    <view bindtap="salerule" class="rule">分享有赏规则</view>
+</view>

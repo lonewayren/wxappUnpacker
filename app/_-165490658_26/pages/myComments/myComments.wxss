@@ -1,0 +1,208 @@
+page {
+    background-color: #ffffff;
+}
+
+.likes-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 12rpx;
+}
+
+.nocomments {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.nocomments .none-icon {
+    width: 242rpx;
+    height: 201rpx;
+    margin-top: 225rpx;
+}
+
+.nocomments .text {
+    font-size: 33rpx;
+    margin-top: 48rpx;
+    color: #888888;
+}
+
+.comment-block {
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.comment-block .praise-item-wrap {
+    width: 100%;
+    border-bottom-width: 1rpx;
+    border-bottom-style: solid;
+    border-bottom-color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.comment-block .praise-item {
+    width: 654rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.comment-block .praise-item .handle {
+    width: 100%;
+    height: 83rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 23rpx;
+    color: #888888;
+}
+
+.comment-block .praise-item .handle .title {
+    font-size: 24rpx;
+}
+
+.comment-block .praise-item .handle .title .dianzan {
+    margin-left: 25rpx;
+    margin-right: 2rpx;
+}
+
+.comment-block .praise-item .handle .delicon {
+    font-size: 36rpx;
+    color: #888888;
+}
+
+.comment-block .praise-item .handle .shareicon {
+    margin-left: 87rpx;
+    font-size: 41rpx;
+    color: #888888;
+}
+
+.comment-block .praise-item .content {
+    width: 100%;
+    padding-top: 42rpx;
+    padding-bottom: 41rpx;
+    font-size: 30rpx;
+    color: #353535;
+}
+
+.comment-block .praise-item .content .text-content {
+    width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.comment-block .praise-item .original {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    box-shadow: 0 0 26rpx #dee3eb;
+    margin-bottom: 50rpx;
+    border-radius: 6rpx;
+}
+
+.comment-block .praise-item .original .title {
+    width: 100%;
+    height: 89rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rpx;
+}
+
+.comment-block .praise-item .original .title .bookicon {
+    font-size: 22rpx;
+    color: #888888;
+    margin-right: 21rpx;
+    margin-left: 29rpx;
+}
+
+.comment-block .praise-item .original .title .icon-video- {
+    font-size: 22rpx;
+    color: #888888;
+    margin-right: 21rpx;
+    margin-left: 29rpx;
+}
+
+.comment-block .praise-item .original .title .title-text {
+    width: 543rpx;
+    font-size: 24rpx;
+    color: #888888;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.comment-block .praise-item .original .title .arrowright {
+    font-size: 22rpx;
+    color: #9d9d9d;
+    margin-right: 29rpx;
+}
+
+.comment-block .praise-item .original .has-reply {
+    width: 100%;
+    margin-bottom: 36rpx;
+}
+
+.comment-block .praise-item .original .has-reply .who-reply {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.comment-block .praise-item .original .has-reply .who-reply .icon-line {
+    margin-left: 29rpx;
+    font-size: 23rpx;
+    color: #ff5a05;
+}
+
+.comment-block .praise-item .original .has-reply .who-reply .author {
+    font-size: 23rpx;
+    color: #888888;
+    text-align: left;
+}
+
+.comment-block .praise-item .original .has-reply .reply-content {
+    padding-left: 29rpx;
+    padding-right: 29rpx;
+}
+
+.comment-block .praise-item .original .has-reply .reply-content .reply-text {
+    margin-top: 24rpx;
+    font-size: 28rpx;
+    color: #353535;
+    width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.comment-block .praise-item .original .has-reply .reply-time {
+    width: 100%;
+}
+
+.comment-block .praise-item .original .has-reply .reply-time .times {
+    margin-left: 29rpx;
+    text-align: left;
+    font-size: 21rpx;
+    color: #888888;
+}

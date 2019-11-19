@@ -1,0 +1,211 @@
+@charset "UTF-8";
+
+.toptab {
+    width: 100%;
+    height: 101rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom-color: #E8E8E8;
+    border-bottom-style: solid;
+    border-bottom-width: 1rpx;
+    position: fixed;
+    top: 0;
+    background-color: #ffffff;
+    opacity: 1;
+    z-index: 1000;
+}
+
+.toptab .c-tab {
+    font-size: 32rpx;
+    color: #353535;
+    line-height: 66rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.toptab .c-tab .bottom-line {
+    width: 70%;
+    height: 6rpx;
+    border-radius: 6rpx;
+}
+
+.all {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 101rpx;
+}
+
+.type-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 101rpx;
+}
+
+.type {
+    width: 682rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-bottom-width: 1rpx;
+    border-bottom-style: solid;
+    border-bottom-color: #E8E8E8;
+    margin-top: 38rpx;
+}
+
+.type .sub-title {
+    align-self: flex-start;
+    font-size: 40rpx;
+    color: #353535;
+    line-height: 66rpx;
+    font-weight: 500;
+}
+
+.type .col-item {
+    width: 682rpx;
+    height: 122rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-top: 31rpx;
+    margin-bottom: 31rpx;
+}
+
+.type .col-item .col-poster {
+    width: 122rpx;
+    height: 122rpx;
+    margin-right: 28rpx;
+    border-radius: 12rpx;
+}
+
+.type .col-item .col-info {
+    width: 529rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.type .col-item .col-info .col-title {
+    width: 100%;
+    height: 36rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+    font-size: 34rpx;
+    color: #4D4D4D;
+    line-height: 34rpx;
+}
+
+.type .col-item .col-info .col-refresh {
+    min-height: 34rpx;
+    font-size: 24rpx;
+    color: #888888;
+    margin-top: 20rpx;
+    margin-bottom: 4rpx;
+}
+
+.type .col-item .col-info .col-stage {
+    width: 100%;
+    font-size: 24rpx;
+    color: #888888;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    line-height: 16rpx;
+}
+
+.type .col-item .col-info .col-stage .col-stage-sta {
+    font-size: 24rpx;
+    line-height: 24rpx;
+    color: #888888;
+}
+
+.type .col-item .col-info .col-stage .wrap {
+    width: 196rpx;
+    height: 30rpx;
+    position: relative;
+}
+
+.type .col-item .col-info .col-stage .wrap .col-play {
+    width: 196rpx;
+    height: 51rpx;
+    border: solid 1rpx #FA8919;
+    border-radius: 26rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 29rpx;
+    color: #FA8919;
+    position: absolute;
+    bottom: -12rpx;
+}
+
+.type .col-item .col-info .col-stage .wrap .col-play .icon-play2 {
+    margin-right: 8rpx;
+    font-size: 29rpx;
+    color: #FA8919;
+}
+
+.type .col-item .col-info .col-stage .wrap .col-play .play-text {
+    line-height: 29rpx;
+    font-size: 30rpx;
+    color: #FA8919;
+}
+
+.type .showAll {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #FA8919;
+    font-size: 27rpx;
+    margin-top: 75rpx;
+    margin-bottom: 54rpx;
+    position: relative;
+}
+
+.nothing {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 150rpx;
+}
+
+.nothing .nothing-img {
+    width: 228rpx;
+    height: 199rpx;
+}
+
+.nothing .text {
+    margin-top: 48rpx;
+    font-size: 33rpx;
+    color: #888888;
+}
+
+.play-text {
+    font-weight: 600;
+    font-size: 30rpx;
+}
+
+.learned {
+    color: #FA8919;
+}

@@ -1,0 +1,8 @@
+<view class="wrapper">
+    <view class="comment-box">
+        <textarea bindinput="handleInput" class="comment-box-input" maxlength="2000" placeholder="由作者筛选后的优质留言将会公开显示，欢迎踊跃留言。"></textarea>
+        <text class="comment-box-counter" wx:if="{{count>=0}}">剩余 {{count}}</text>
+        <text class="comment-box-counter warning" wx:else>已超出 {{-count}}</text>
+    </view>
+    <view bindtap="submit" class="btn-summit">提交</view>
+</view>

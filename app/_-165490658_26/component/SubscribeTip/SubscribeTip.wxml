@@ -1,0 +1,3 @@
+<cover-view bindtap="hide" style="z-index: 1000; opacity: {{show?'1':'0'}}; position: fixed; top: {{show?'0':'-200vh'}};height: 100vh;left: 0;right: 0;background:rgba(0,0,0,0.6);display: flex;justify-content: center; align-items: center;transition: opacity 0.4s">
+    <cover-image src="https://static001.geekbang.org/resource/image/c7/bc/c70e5558216d8319b328a7c238a909bc.png" style="display: block; width: 70%; height: 54.5%"></cover-image>
+</cover-view>

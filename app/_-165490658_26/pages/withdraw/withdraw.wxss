@@ -1,0 +1,150 @@
+.clearfix {
+    zoom: 1;
+}
+
+.clearfix:after {
+    clear: both;
+    content: '.';
+    display: block;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.getmoney {
+    font-size: 15px;
+    color: #888;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+}
+
+.getmoney .withdraw-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24rpx 44rpx;
+    font-size: 28rpx;
+}
+
+.getmoney .withdraw-gray {
+    color: #888;
+}
+
+.getmoney .withdraw-user {
+    color: #353535;
+    font-weight: 400;
+}
+
+.getmoney .withdraw-bind {
+    color: #fa8919;
+    width: 196rpx;
+    text-align: right;
+}
+
+.getmoney button.withdraw-bind {
+    font-size: 28rpx;
+    line-height: 1;
+    padding: 0;
+    background: transparent;
+    margin: 0;
+}
+
+.getmoney button.withdraw-bind::after {
+    border: 0;
+}
+
+.getmoney .mid {
+    background-color: #fff;
+    padding: 50rpx 40rpx;
+}
+
+.getmoney .mid .ope {
+    border-bottom: 1px solid #f5f5f5;
+    background-color: #fff;
+}
+
+.getmoney .mid .ope .mony {
+    padding-bottom: 44rpx;
+}
+
+.getmoney .mid .ope .acti view {
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    font-size: 24px;
+    color: #353535;
+    padding-right: 22rpx;
+    margin-left: -5px;
+}
+
+.getmoney .mid .ope .acti input {
+    float: left;
+    height: 40px;
+    font-size: 30px;
+    box-sizing: border-box;
+    width: 500rpx;
+    color: #353535;
+}
+
+.getmoney .mid .ke {
+    padding-top: 13px;
+}
+
+.getmoney .mid .ke .num {
+    font-size: 12px;
+}
+
+.getmoney .mid .ke .all {
+    font-size: 12px;
+    padding-left: 16rpx;
+    color: #fa8919;
+}
+
+.getmoney .mid .tip {
+    color: #fa8919;
+    padding-top: 6px;
+    font-size: 12px;
+    float: left;
+}
+
+.getmoney .mid .get {
+    background-color: #fa8919;
+    border-radius: 3px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: white;
+    margin-top: 32px;
+}
+
+.getmoney .mid .get.prevent {
+    color: #ccc;
+    background-color: #f5f5f5;
+}
+
+.getmoney .detail {
+    padding: 42rpx 40rpx;
+}
+
+.getmoney .detail .know {
+    font-size: 18px;
+    padding-bottom: 5px;
+}
+
+.getmoney .detail .tip {
+    height: 20px;
+    font-size: 12px;
+}
+
+.getmoney .detail .tip3 {
+    height: 20px;
+    font-size: 12px;
+}
+
+.getmoney .detail .tip3 .front {
+    font-size: 12px;
+}
+
+.getmoney .detail .tip3 .follow {
+    color: #00baff;
+}

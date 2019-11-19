@@ -1,0 +1,8 @@
+{
+    "disableScroll": true,
+    "usingComponents": {
+        "gk-video": "/component/GKVideo/GKVideo",
+        "action-sheet-share": "/component/ActionSheetShare/ActionSheetShare",
+        "subscribe-tip": "/component/SubscribeTip/SubscribeTip"
+    }
+}

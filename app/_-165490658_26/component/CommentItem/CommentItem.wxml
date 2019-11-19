@@ -1,0 +1,29 @@
+<template name="commentItem">
+    <view class="comment-item">
+        <image class="avatar" src="{{data.user_header||'https://static001.geekbang.org/resource/image/e4/3a/e4ab9fe063670d7f1dca99949ed1e23a.jpg'}}"></image>
+        <view class="info">
+            <view class="hd">
+                <view class="username">{{data.user_name}}</view>
+                <text bindtap="shareComment" class="icon iconfont icon-zhuanfa" data-data="{{data}}"></text>
+                <view bindtap="praiseComment" class="btn-praise {{data.had_liked?'is-highlight':''}}" data-data="{{data}}">
+                    <text class="icon iconfont icon-praise-line"></text>
+                    <text class="span">{{data.like_count}}</text>
+                </view>
+            </view>
+            <view class="bd">
+                <text>{{data.comment_content}}</text>
+            </view>
+            <view class="time">{{data.comment_ctime_format}}</view>
+            <view class="reply" wx:if="{{data.replies&&data.replies[0]}}">
+                <view class="reply-hd">
+                    <text class="icon iconfont icon-line"></text>
+                    <text class="span">{{data.replies[0].user_name||'作者回复'}}</text>
+                </view>
+                <view class="reply-content">
+                    <text>{{data.replies[0].content}}</text>
+                </view>
+                <view class="reply-time">{{data.replies[0].ctime_format}}</view>
+            </view>
+        </view>
+    </view>
+</template>

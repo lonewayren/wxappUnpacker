@@ -1,0 +1,63 @@
+<import src="/component/CommentItem/CommentItem.wxml"></import>
+<gk-video bindnext="onNextVideo" bindsubscribe="subscribe" data="{{currentArticle}}" index="{{currentIndex}}" list="{{videoList}}" type="course"></gk-video>
+<import src="/component/wxParse/wxParse.wxml"></import>
+<scroll-view scrollY bindscrolltolower="onReachBottom" class="course-detail">
+    <view bindtap="switchIntro" class="course-info">
+        <view class="course-info-top">
+            <view class="h1 course-title">{{data.column_title}}</view>
+            <text class="iconfont icon-arrowright1"></text>
+        </view>
+        <view class="course-info-bottom">
+            <text class="iconfont icon-video"></text>
+            <text space="nbsp"> 视频课程</text>
+            <text class="course-status-update">{{data.update_frequency}}</text>
+        </view>
+    </view>
+    <scroll-view scrollWithAnimation class="video-list" scrollLeft="{{currentIndex*windowWidth/3+(currentIndex-1)*11}}" scrollX="true">
+        <view bindtap="switchVideo" class="video-list-item {{currentIndex===index?'on':''}}" data-index="{{index}}" style="width: {{windowWidth/3}}px" wx:for="{{videoList}}">
+            <image src="./assets/icon-trial.png" wx:if="{{!data.had_sub&&item.trial}}"></image>
+            <text class="a">{{item.title_cut32}}</text>
+        </view>
+    </scroll-view>
+    <view class="content-box" wx:if="{{currentArticle.showContent}}">
+        <view class="gk-content custom">
+            <template is="wxParse" data="{{wxParseData:content.nodes}}"></template>
+        </view>
+    </view>
+    <view class="extra">
+        <view class="h2">
+            <text class="span">精选留言</text>
+        </view>
+        <view wx:if="{{comments.length>0}}">
+            <template is="commentItem" data="{{data:item}}" wx:for="{{comments}}" wx:key="index"></template>
+        </view>
+        <view class="no-comment" wx:else>
+            <view class="iconfont icon-cat icon-xingzhuang6"></view>
+            <view class="no-comment-text">暂无留言，快来抢沙发~</view>
+        </view>
+    </view>
+</scroll-view>
+<view class="bottom" wx:if="{{data.had_sub===false&&data.is_onborad!==false&&!isIOS}}">
+    <view bindtap="subscribe" class="button button-primary button-subscribe">去订阅《{{data.column_title}}》</view>
+</view>
+<view class="bottom" wx:elif="{{data.had_sub===false&&isIOS}}">
+    <view class="button button-cancel is-ios">由于相关规范，iOS 用户暂不可在小程序内订阅</view>
+</view>
+<view class="bottom is-control" wx:if="{{data.had_sub}}">
+    <view bindtap="praiseArticle" class="bottom-control-item">
+        <text class="bottom-control-item-icon iconfont {{currentArticle.had_liked?'icon-xin1':'icon-xin'}}" style="color: {{currentArticle.had_liked?'#ff5a05':'#353535'}}"></text>
+        <text class="bottom-control-item-text">{{currentArticle.like_count}}</text>
+    </view>
+    <view bindtap="commentJump" class="bottom-control-item">
+        <text class="bottom-control-item-icon iconfont icon-xingzhuang9"></text>
+        <text class="bottom-control-item-text">写留言</text>
+    </view>
+</view>
+<block wx:if="{{data.column_poster_wxlite}}">
+    <view bindtap="popupShare" class="share-icon-wrap {{shareIconAnimate?'animate-rotate':''}}">
+        <text class="share-icon iconfont icon-share"></text>
+    </view>
+    <action-sheet-share bindselect="selectAction" show="{{showActionSheet}}"></action-sheet-share>
+</block>
+<subscribe-tip bind:hide="hideReview" show="{{showReview}}"></subscribe-tip>
+<action-sheet-share actions="{{payActions}}" bindselect="selectPayAction" show="{{showPayAction}}"></action-sheet-share>

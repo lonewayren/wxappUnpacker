@@ -1,0 +1,7 @@
+<view class="wvshare-panel">
+    <view class="wvshare-panel__bd">
+        <image class="wvshare-panel__image" src="{{loginUser.avatar||defaultAvatar}}"></image>
+        <text class="wvshare-panel__text">点击按钮分享</text>
+        <button class="wvshare-panel__btn" openType="share">立即分享</button>
+    </view>
+</view>

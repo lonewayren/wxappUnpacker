@@ -1,0 +1,21 @@
+<import src="/component/wxParse/wxParse.wxml"></import>
+<view class="wrap" wx:if="{{ready}}">
+    <view class="title">{{data.article_title}}</view>
+    <view class="line is-top"></view>
+    <view class="content gk-content">
+        <scroll-view scrollY class="scroll">
+            <template is="wxParse" data="{{wxParseData:content.nodes}}"></template>
+            <view class="content-bottom-fill"></view>
+        </scroll-view>
+        <view class="content-bottom-mask"></view>
+    </view>
+    <view bindtap="columnJump" class="btn-jump">查看完整文章>></view>
+    <view class="line is-bottom"></view>
+    <view class="footer">
+        <view class="footer-column">《{{data.column_title}}》</view>
+        <view bindtap="popupShare" class="footer-share" wx:if="{{data.article_poster_wxlite}}">
+            <text class="iconfont icon-share icon"></text>
+        </view>
+    </view>
+</view>
+<action-sheet-share bindselect="selectAction" show="{{showActionSheet}}"></action-sheet-share>

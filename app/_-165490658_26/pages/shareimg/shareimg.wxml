@@ -1,0 +1,8 @@
+<view class="wrap">
+    <canvas canvasId="image" style="width: {{imgSize.width}}px; height: {{imgSize.height}}px;"></canvas>
+    <view bindtap="save" class="btn-save" style="width: {{imgSize.width}}px; height: {{imgSize.width*0.147}}px; margin-top: {{btnMargin}}vh; opacity: {{saving?0.7:1}}" wx:if="{{showBtn&&!showSettingBtn}}">
+    {{saving?'保存中...':info.btnName}}
+  </view>
+    <button class="btn-save" openType="openSetting" style="width: {{imgSize.width}}px; height: {{imgSize.width*0.147}}px; margin-top: {{btnMargin}}vh; opacity: {{saving?0.7:1}}" wx:if="{{showBtn&&showSettingBtn}}">微信授权并保存图片</button>
+</view>
+<canvas canvasId="image-save" style="width: {{imgSaveSize.width}}px; height: {{imgSaveSize.height}}px; position: absolute; top: -10000px; left: -10000px;"></canvas>

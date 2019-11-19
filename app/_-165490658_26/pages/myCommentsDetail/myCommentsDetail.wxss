@@ -1,0 +1,118 @@
+.wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 100rpx;
+}
+
+.comments {
+    width: 654rpx;
+    padding-top: 43rpx;
+    padding-bottom: 37rpx;
+    font-size: 34rpx;
+    color: #353535;
+    line-height: 48rpx;
+}
+
+.columnInfo {
+    width: 654rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #F3F3F3;
+    border-radius: 8rpx;
+    padding-top: 32rp;
+}
+
+.columnInfo .col-title {
+    width: 590rpx;
+    height: 91rpx;
+    font-size: 24rpx;
+    color: #888888;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.columnInfo .col-title .bookicon {
+    font-size: 22rpx;
+    color: #888888;
+}
+
+.columnInfo .col-title .icon-video- {
+    font-size: 22rpx;
+    color: #888888;
+}
+
+.columnInfo .col-title .col-title-text {
+    width: 553rpx;
+    margin-left: 23rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.columnInfo .author-area {
+    width: 590rpx;
+    height: 25rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.columnInfo .author-area .icon-line {
+    font-size: 22rpx;
+    color: #FF5A05;
+}
+
+.columnInfo .author-area .author {
+    font-size: 22rpx;
+    color: #888888;
+}
+
+.columnInfo .reply-contents {
+    width: 590rpx;
+    color: #888888;
+    margin-top: 27rpx;
+    font-size: 30rpx;
+    line-height: 48rpx;
+}
+
+.columnInfo .reply-time {
+    width: 590rpx;
+    font-size: 24rpx;
+    color: #888888;
+    margin-top: 30rpx;
+    margin-bottom: 53rpx;
+}
+
+.handel-area {
+    width: 654rpx;
+    height: 70rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.handel-area .reply-time {
+    font-size: 23rpx;
+    color: #888888;
+}
+
+.handel-area .handel .delicon {
+    color: #888888;
+    font-size: 36rpx;
+}
+
+.handel-area .handel .shareicon {
+    color: #888888;
+    font-size: 38rpx;
+    margin-left: 86rpx;
+}

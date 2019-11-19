@@ -1,0 +1,86 @@
+{
+  "pages": [
+    "pages/explore/explore",
+    "pages/explorebook/explorebook",
+    "pages/column/column",
+    "pages/articlepreview/articlepreview",
+    "pages/articlepro/articlepro",
+    "pages/vplayer/vplayer",
+    "pages/user/user",
+    "pages/columns/columns",
+    "pages/columnarticles/columnarticles",
+    "pages/comment/comment",
+    "pages/login/login",
+    "pages/loginbind/loginbind",
+    "pages/loginphone/loginphone",
+    "pages/coupon/coupon",
+    "pages/cashier/cashier",
+    "pages/selectcoupon/selectcoupon",
+    "pages/couponrule/couponrule",
+    "pages/sharemoment/sharemoment",
+    "pages/courseintro/courseintro",
+    "pages/coursedetail/coursedetail",
+    "pages/gkwebview/gkwebview",
+    "pages/mybought/mybought",
+    "pages/myComments/myComments",
+    "pages/myLikes/myLikes",
+    "pages/myreward/myreward",
+    "pages/mycashdetail/mycashdetail",
+    "pages/withdraw/withdraw",
+    "pages/mygroupon/mygroupon",
+    "pages/groupon/groupon",
+    "pages/shareimg/shareimg",
+    "pages/sharecomment/sharecomment",
+    "pages/myCommentsDetail/myCommentsDetail",
+    "pages/webviewshare/webviewshare",
+    "pagesb/getcoupon/getcoupon"
+  ],
+  "window": {
+    "navigationBarTitleText": "极客时间",
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#f8f8f8",
+    "backgroundTextStyle": "dark",
+    "enablePullDownRefresh": false,
+    "onReachBottomDistance": 50,
+    "navigationStyle": "default"
+  },
+  "tabBar": {
+    "position": "bottom",
+    "color": "#888",
+    "selectedColor": "#ff5a05",
+    "backgroundColor": "#f8f8f8",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/explore/explore",
+        "text": "发现",
+        "iconPath": "assets/img/tabbar_discover.png",
+        "selectedIconPath": "assets/img/tabbar_discoverHL.png"
+      },
+      {
+        "pagePath": "pages/columns/columns",
+        "text": "讲堂",
+        "iconPath": "assets/img/tabbar_mainframe.png",
+        "selectedIconPath": "assets/img/tabbar_mainframeHL.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "assets/img/tabbar_me.png",
+        "selectedIconPath": "assets/img/tabbar_meHL.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 60000,
+    "connectSocket": 60000,
+    "uploadFile": 60000,
+    "downloadFile": 60000
+  },
+  "subPackages": [
+
+  ],
+  "debug": false,
+  "sitemapLocation": "sitemap.json"
+}

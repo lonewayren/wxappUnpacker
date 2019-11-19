@@ -1,0 +1,26 @@
+<view class="wrap">
+    <view class="handel-area">
+        <text class="reply-time">留言 · {{comment.comment_ctime}}</text>
+        <view class="handel">
+            <text bindtap="del" class="iconfont icon-delicon delicon" data-comments="{{comment}}"></text>
+            <text bindtap="sharecomment" class="iconfont icon-fenxiang1 shareicon" data-comments="{{comment}}"></text>
+        </view>
+    </view>
+    <view class="comments">
+        <text>{{comment.comment_content}}</text>
+    </view>
+    <view class="columnInfo">
+        <view bindtap="jump" class="col-title" data-comments="{{comment}}">
+            <text class="iconfont icon-xingzhuang8 {{comment.source==='course'?'icon-video-':'bookicon'}}"></text>
+            <text class="col-title-text">{{comment.article_title}}</text>
+        </view>
+        <view class="author-area" wx:if="{{comment.replies&&comment.replies.length!==0}}">
+            <text class="iconfont author-icon icon-line"></text>
+            <text class="author">{{comment.replies[0].user_name||'作者回复'}}</text>
+        </view>
+        <view class="reply-contents" wx:if="{{comment.replies&&comment.replies.length!==0}}">
+			{{comment.replies[0].content}}
+		</view>
+        <view class="reply-time" wx:if="{{comment.replies}}">回复于·{{comment.replies[0].ctime}}</view>
+    </view>
+</view>

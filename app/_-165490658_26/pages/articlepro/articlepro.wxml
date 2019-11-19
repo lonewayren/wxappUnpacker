@@ -1,0 +1,56 @@
+<import src="/component/wxParse/wxParse.wxml"></import>
+<import src="/component/CommentItem/CommentItem.wxml"></import>
+<view class="article">
+    <view class="main" wx:if="data.article_content">
+        <view class="article-title">{{data.article_title}}</view>
+        <view class="article-info">
+            <text wx:if="{{data.article_ctime_filter}}">{{data.article_ctime_filter}}</text>
+            <text> {{data.author_name}}</text>
+        </view>
+        <view class="article-content gk-content">
+            <image class="article-content-cover" mode="widthFix" src="{{data.article_cover}}" wx:if="{{!data.article_cover_hidden}}"></image>
+            <gk-video data="{{data}}" fix="{{false}}" wx:if="{{data.video_url}}"></gk-video>
+            <mini-audio-player column="{{column}}" data="{{data}}" wx:if="{{data.audio_url}}"></mini-audio-player>
+            <template is="wxParse" data="{{wxParseData:content.nodes}}"></template>
+            <view style="color: #999;" wx:if="{{data.cid}}">
+        版权归极客邦科技所有，未经许可不得转载
+      </view>
+        </view>
+        <view class="article-comments" wx:if="{{comments.length>0}}">
+            <view class="h2">
+                <text class="span">精选留言</text>
+            </view>
+            <view>
+                <template is="commentItem" data="{{data:item}}" wx:for="{{comments}}" wx:key="index"></template>
+            </view>
+        </view>
+        <view class="article-comments" wx:else>
+            <view class="h2">
+                <text class="span">通过留言可与作者互动</text>
+            </view>
+        </view>
+    </view>
+    <block wx:if="{{column&&column.column_price&&!data.column_had_sub}}">
+        <view class="bottom" wx:if="{{!isIOS}}">
+            <view bindtap="subscribe" class="button button-primary button-subscribe">去订阅《{{column.column_title}}》</view>
+        </view>
+        <view class="bottom" wx:if="{{isIOS}}">
+            <view class="button button-cancel is-ios">由于相关规范，iOS 用户暂不可在小程序内订阅</view>
+        </view>
+    </block>
+    <view class="bottom is-control" wx:else>
+        <view bindtap="praiseArticle" class="bottom-control-item">
+            <text class="bottom-control-item-icon iconfont {{data.had_liked?'icon-xin1':'icon-xin'}}" style="color: {{data.had_liked?'#ff5a05':'#353535'}}"></text>
+            <text class="bottom-control-item-text">{{data.like_count}}</text>
+        </view>
+        <view bindtap="commentJump" class="bottom-control-item">
+            <text class="bottom-control-item-icon iconfont icon-xingzhuang9"></text>
+            <text class="bottom-control-item-text">写留言</text>
+        </view>
+        <view bindtap="popupShare" class="bottom-control-item" wx:if="{{data.article_poster_wxlite}}">
+            <text class="bottom-control-item-icon iconfont icon-share"></text>
+            <text class="bottom-control-item-text">分享</text>
+        </view>
+    </view>
+    <action-sheet-share bindselect="selectAction" show="{{showActionSheet}}"></action-sheet-share>
+</view>

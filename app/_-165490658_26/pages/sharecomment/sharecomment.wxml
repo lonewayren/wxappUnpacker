@@ -1,0 +1,5 @@
+<canvas canvasId="image" class="displaycanvas" style="width: {{imgSize.width}}px; height: {{imgSize.height}}px; background: #f8f8f8;"></canvas>
+<cover-view bindtap="save" class="saveBtn" style="opacity: {{saving?0.7:1}}" wx:if="{{showBtn}}">
+    <cover-view class="text">{{saving?'保存中...':info.btnName}}</cover-view>
+</cover-view>
+<canvas canvasId="image-save" style="width: {{imgSaveSize.width}}px; height: {{imgSaveSize.height}}px; position: absolute; top: -10000px; left: -10000px;"></canvas>

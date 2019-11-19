@@ -1,0 +1,28 @@
+<view class="coupon-list">
+    <view class="coupon-item" wx:for="{{type!=='history'?list:listDisable}}" wx:for-item="data">
+        <view class="card-wrap {{data.status.code!=='1'&&data.status.code!=='8'?'disableCard':''}}">
+            <view class="left">
+                <view>
+                    <view class="coupon-title {{data.status.classname}}">{{data.name}}</view>
+                    <view class="coupon-subtitle {{data.status.classname}}" wx:if="{{data.desc}}">{{data.desc}}</view>
+                    <view class="coupon-subtitle {{data.status.classname}}" wx:if="{{data.desc2}}">{{data.desc2}}</view>
+                </view>
+                <text class="coupon-time {{data.status.classname}}">使用时间 {{data.start_time_format}}-{{data.end_time_format}}</text>
+            </view>
+            <div class="right">
+                <text class="coupon-icon {{data.status.classname}}">￥</text>
+                <text class="coupon-money {{data.status.classname}}">{{data.amount_format}}</text>
+                <view class="coupon-status {{data.status.code==='8'?'':'disableSt'}}" wx:if="{{data.status.code!=='1'}}">
+                    <text class="coupon-status-text {{data.status.classname}}">{{data.status.text}}</text>
+                </view>
+            </div>
+        </view>
+    </view>
+    <view bindtap="jumpRule" class="rule" wx:if="{{list.length>0}}">使用规则 <i class="icon iconfont icon-arrowright1"></i>
+    </view>
+</view>
+<view class="history">
+    <text bindtap="jumpHistory" wx:if="{{type!=='history'&&showHistory}}">查看历史礼券</text>
+    <text class="history-cutting" space="nbsp" wx:if="{{type!=='history'&&showHistory}}">   |   </text>
+    <text bindtap="jumpGetcoupon">兑换礼券</text>
+</view>

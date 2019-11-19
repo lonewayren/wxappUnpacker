@@ -1,0 +1,129 @@
+<view class="mygroupon">
+    <view class="tab">
+        <view class="it {{showIndex==='0'?'active':''}}">
+            <view bindtap="switchtab" class="a" data-index="0">拼团中</view>
+        </view>
+        <view class="it {{showIndex==='1'?'active':''}}">
+            <view bindtap="switchtab" class="b" data-index="1">全部</view>
+        </view>
+    </view>
+    <view class="con">
+        <view wx:if="{{showIndex==='0'}}">
+            <view wx:if="{{grouponingList.length!==0}}">
+                <view bindtap="directTo" class="item" data-item="{{item}}" wx:for="{{grouponingList}}">
+                    <view class="tit">
+                        <view class="le">
+                            <text class="zm-cell-hd-icon iconfont icon-shijian ico" style="color: #fa8919;font-size: 26rpx; padding-right: 10rpx" wx:if="icon-bought"></text>
+                            <text class="time">距拼团结束还有 </text>
+                            <text class="clock" wx:if="{{time.day( item['remainingTime'] )!==0}}">{{time.day( item['remainingTime'] )}}天 </text>
+                            <text class="clock">{{time.hour( item['remainingTime'] )}} : {{time.min( item['remainingTime'] )}} : {{time.sec( item['remainingTime'] )}}</text>
+                        </view>
+                        <view class="status">
+                            <text wx:if="{{item.groupbuy.status===1}}">拼团中</text>
+                            <text wx:if="{{item.groupbuy.status===0}}">拼团失败</text>
+                            <text wx:if="{{item.groupbuy.status===2}}">拼团成功</text>
+                        </view>
+                    </view>
+                    <view class="co">
+                        <view>
+                            <image src="{{item.column.cover}}"></image>
+                        </view>
+                        <view class="ri">
+                            <view class="ritop">
+                                <view class="a">{{item.column.title}}</view>
+                                <view class="b">{{item.column.author_name}} {{item.column.author_intro}}</view>
+                                <view class="b">{{item.column.sub_count}} 人已加入学习</view>
+                            </view>
+                            <view class="ribottom">
+                                <text class="rb1 {{isIOS?'hidden':''}}">拼团价¥{{util.formatPrice(item.groupbuy.price,2)}} | </text>
+                                <text class="rb2">还差 </text>
+                                <text class="rb3">{{item.remainPer}} </text>
+                                <text class="rb4">人成团</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="none" wx:if="{{grouponingList.length===0}}">
+                <view class="img">
+                    <image alt="" src="https://static001.geekbang.org/resource/image/fa/f6/faccd6e62eefc371ed49d892ac2132f6.png"></image>
+                </view>
+                <view class="char">暂无拼团</view>
+            </view>
+        </view>
+        <view wx:if="{{showIndex==='1'}}">
+            <view wx:if="{{allList.length!==0}}">
+                <view bindtap="directTo" class="item" data-item="{{item}}" wx:for="{{allList}}">
+                    <view class="tit">
+                        <view wx:if="{{item.groupbuy.status===1}}">
+                            <text class="zm-cell-hd-icon iconfont icon-shijian ico" style="color: #fa8919;font-size: 26rpx; padding-right: 10rpx" wx:if="icon-bought"></text>
+                            <text class="time2">开团时间：</text>
+                            <text class="clock">{{item.startTime}}</text>
+                        </view>
+                        <view wx:if="{{item.groupbuy.status!==1}}">
+                            <text class="zm-cell-hd-icon iconfont icon-shijian ico" style="color: #d2d2d2;font-size: 26rpx; padding-right: 10rpx" wx:if="icon-bought"></text>
+                            <text class="time2">开团时间：</text>
+                            <text>{{item.startTime}}</text>
+                        </view>
+                        <view class="status {{item.groupbuy.status===2?'success':''}} {{item.groupbuy.status===0?'fail':''}}">
+                            <text wx:if="{{item.groupbuy.status===1}}">拼团中</text>
+                            <text wx:if="{{item.groupbuy.status===0}}">拼团失败</text>
+                            <text wx:if="{{item.groupbuy.status===2}}">拼团成功</text>
+                        </view>
+                    </view>
+                    <view class="co">
+                        <view>
+                            <image src="{{item.column.cover}}"></image>
+                        </view>
+                        <view class="ri">
+                            <view class="ritop">
+                                <view class="a">{{item.column.title}}</view>
+                                <view class="b">{{item.column.author_name}} {{item.column.author_intro}}</view>
+                                <view class="b">{{item.column.sub_count}} 人已加入学习</view>
+                            </view>
+                            <view class="ribottom">
+                                <text class="rb1 {{isIOS?'hidden':''}}">拼团价¥{{util.formatPrice(item.groupbuy.price,2)}} | </text>
+                                <block wx:if="{{item.groupbuy.status===1}}">
+                                    <text class="rb2">还差 </text>
+                                    <text class="rb3">{{item.remainPer}} </text>
+                                    <text class="rb4">人成团</text>
+                                </block>
+                                <text class="rb2" wx:if="{{item.groupbuy.status===0}}">未成团</text>
+                                <text class="rb2" wx:if="{{item.groupbuy.status===2}}">已成团</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="none" wx:if="{{allList.length===0}}">
+                <view class="img">
+                    <image alt="" src="https://static001.geekbang.org/resource/image/fa/f6/faccd6e62eefc371ed49d892ac2132f6.png"></image>
+                </view>
+                <view class="char">暂无拼团</view>
+            </view>
+        </view>
+    </view>
+</view>
+<wxs module="util" src="../../utilswxs/index.wxs" />
+<wxs module="time">
+module.exports.day = (function(t) {
+    if (!t) return ('00');;
+    var days = Math.floor(t / (1000 * 60 * 60 * 24));
+    return (days)
+});
+module.exports.hour = (function(t) {
+    if (!t) return ('00');;
+    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+    return (hours >= 10 ? hours : '0' + hours.toString())
+});
+module.exports.min = (function(t) {
+    if (!t) return ('00');;
+    var minutes = Math.floor((t / 1000 / 60) % 60);
+    return (minutes >= 10 ? minutes : '0' + minutes.toString())
+});
+module.exports.sec = (function(t) {
+    if (!t) return ('00');;
+    var seconds = Math.floor((t / 1000) % 60);
+    return (seconds >= 10 ? seconds : '0' + seconds.toString())
+});
+</wxs>

@@ -1,0 +1,11 @@
+<view bindtap="close" class="root {{show?'is-show':'is-hidden'}}">
+    <view class="actions">
+        <view class="select">
+            <view catchtap="selectAction" class="item {{index===actions.length-1?'last':''}}" data-index="{{index}}" wx:for="{{actions}}">
+        {{item.name}}
+        <button openType="share" wx:if="{{item.key==='shareTimeline'}}">转发给好友</button>
+            </view>
+        </view>
+        <view catchtap="close" class="item">取消</view>
+    </view>
+</view>

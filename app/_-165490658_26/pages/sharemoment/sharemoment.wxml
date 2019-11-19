@@ -1,0 +1,3 @@
+<image class="share-image" mode="aspectFit" src="{{img}}"></image>
+<view bindtap="save" class="share-btn-save" wx:if="{{!showSettingBtn}}">保存分享卡片</view>
+<button class="share-btn-save" openType="openSetting" wx:if="{{hasRequest&&showSettingBtn}}">微信授权并保存图片</button>

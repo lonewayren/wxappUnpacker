@@ -1,0 +1,21 @@
+.btn {
+    box-sizing: border-box;
+    position: fixed;
+    width: 78rpx;
+    height: 78rpx;
+    right: 50rpx;
+    bottom: 40rpx;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ff5a05;
+    box-shadow: 0px 0px 5px -1px #ff5a05;
+    color: #ff5a05;
+}
+
+.btn-icon {
+    box-sizing: border-box;
+    width: 50%;
+}

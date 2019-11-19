@@ -1,0 +1,214 @@
+<view class="toptab">
+    <view bindtap="switchType" class="c-tab" data-type="0" style="font-weight: {{type===0?500:400}};color: {{type===0?'#353535':'#888888'}};">
+        <view>全部</view>
+        <view class="bottom-line" style="background-color: {{type===0?'#F7892B':'#ffffff'}};"></view>
+    </view>
+    <view bindtap="switchType" class="c-tab" data-type="1" style="font-weight: {{type===1?500:400}};color: {{type===1?'#353535':'#888888'}};">
+        <view>专栏</view>
+        <view class="bottom-line" style="background-color: {{type===1?'#F7892B':'#ffffff'}};"></view>
+    </view>
+    <view bindtap="switchType" class="c-tab" data-type="2" style="font-weight: {{type===2?500:400}};color: {{type===2?'#353535':'#888888'}};">
+        <view>视频课</view>
+        <view class="bottom-line" style="background-color: {{type===2?'#F7892B':'#ffffff'}};"></view>
+    </view>
+    <view bindtap="switchType" class="c-tab" data-type="3" style="font-weight: {{type===3?500:400}};color: {{type===3?'#353535':'#888888'}};">
+        <view>微课</view>
+        <view class="bottom-line" style="background-color: {{type===3?'#F7892B':'#ffffff'}};"></view>
+    </view>
+    <view bindtap="switchType" class="c-tab" data-type="4" style="font-weight: {{type===4?500:400}};color: {{type===4?'#353535':'#888888'}};">
+        <view>其他</view>
+        <view class="bottom-line" style="background-color: {{type===4?'#F7892B':'#ffffff'}};"></view>
+    </view>
+</view>
+<view class="itemcontainer">
+    <view class="all" wx:if="{{type===0}}">
+        <view class="type" wx:if="{{column.cut.length!==0}}">
+            <view class="sub-title">专栏</view>
+            <view bindtap="jump" class="col-item" data-item="{{col}}" wx:for="{{column.cut}}" wx:for-item="col" wx:key="index">
+                <image class="col-poster" mode="scaleToFill" src="{{col.cover}}"></image>
+                <view class="col-info">
+                    <text class="col-title">{{col.title}}</text>
+                    <text class="col-refresh">{{col.extra.update_frequency}}</text>
+                    <view class="col-stage">
+                        <text class="col-stage-sta">已更新 {{col.extra.article_count}} 个 | 已学习 <text class="learned">{{col.extra.view_article_count}}</text> 个</text>
+                        <view class="wrap">
+                            <view class="col-play">
+                                <text class="iconfont icon-play2"></text>
+                                <text class="play-text">开始学习</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="showAll" class="showAll" data-item="{{column}}" wx:if="{{column.all.length>3&&column.cut.length<=3}}">查看全部（{{column.page.count}})</view>
+        </view>
+        <view class="type" wx:if="{{course.cut.length!==0}}">
+            <view class="sub-title">视频课</view>
+            <view bindtap="jump" class="col-item" data-item="{{course}}" wx:for="{{course.cut}}" wx:for-item="course" wx:key="index">
+                <image class="col-poster" mode="scaleToFill" src="{{course.cover}}"></image>
+                <view class="col-info">
+                    <view class="col-title">{{course.title}}</view>
+                    <view class="col-refresh">{{course.extra.update_frequency}}</view>
+                    <view class="col-stage">
+                        <text class="col-stage-sta">已更新 {{course.extra.article_count}} 个 | 已学习 <text class="learned">{{course.extra.view_article_count}}</text> 个</text>
+                        <view class="wrap">
+                            <view class="col-play">
+                                <text class="iconfont icon-play2"></text>
+                                <text class="play-text">开始学习</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="showAll" class="showAll" data-item="{{course}}" wx:if="{{course.all.length>3&&course.cut.length<=3}}">查看全部（{{course.page.count}})</view>
+        </view>
+        <view class="type" wx:if="{{vcourse.cut.length!==0}}">
+            <view class="sub-title">微课</view>
+            <view bindtap="jump" class="col-item" data-item="{{vcourse}}" wx:for="{{vcourse.cut}}" wx:for-item="vcourse" wx:key="index">
+                <image class="col-poster" mode="scaleToFill" src="{{vcourse.cover}}"></image>
+                <view class="col-info">
+                    <view class="col-title">{{vcourse.title}}</view>
+                    <view class="col-refresh">{{vcourse.extra.update_frequency}}</view>
+                    <view class="col-stage">
+                        <text class="col-stage-sta">已更新 {{vcourse.extra.article_count}} 个 | 已学习 <text class="learned">{{vcourse.extra.view_article_count}}</text> 个</text>
+                        <view class="wrap">
+                            <view class="col-play">
+                                <text class="iconfont icon-play2"></text>
+                                <text class="play-text">开始学习</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="showAll" class="showAll" data-item="{{vcourse}}" wx:if="{{vcourse.all.length>3&&vcourse.cut.length<=3}}">查看全部（{{vcourse.page.count}})</view>
+        </view>
+        <view class="type" wx:if="{{others.cut.length!==0}}">
+            <view class="sub-title">其他</view>
+            <view bindtap="jump" class="col-item" data-item="{{others}}" wx:for="{{others.cut}}" wx:for-item="others" wx:key="index">
+                <image class="col-poster" mode="scaleToFill" src="{{others.cover}}"></image>
+                <view class="col-info">
+                    <view class="col-title">{{others.title}}</view>
+                    <view class="col-refresh">{{others.extra.update_frequency}}</view>
+                    <view class="col-stage">
+                        <text class="col-stage-sta">已更新 {{others.extra.article_count}} 个 | 已学习 <text class="learned">{{others.extra.view_article_count}}</text> 个</text>
+                        <view class="wrap">
+                            <view class="col-play">
+                                <text class="iconfont icon-play2"></text>
+                                <text class="play-text">开始学习</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view bindtap="showAll" class="showAll" data-item="{{others}}" wx:if="{{others.all.length>3&&others.cut.length<=3}}">查看全部（{{others.page.count}})</view>
+        </view>
+        <view class="nothing" wx:if="{{column.all.length===0&&course.all.length===0&&vcourse.all.length===0&&others.all.length===0}}">
+            <image class="nothing-img" src="https://static001.geekbang.org/resource/image/58/d3/58788c99a224466d66ad5045d1ab0ad3.png"></image>
+            <text class="text">暂无订阅</text>
+        </view>
+    </view>
+    <view wx:if="{{type===1}}">
+        <view class="type-wrap">
+            <view class="type" wx:if="{{column.all.length!==0}}">
+                <view bindtap="jump" class="col-item" data-item="{{col}}" wx:for="{{column.all}}" wx:for-item="col" wx:key="index">
+                    <image class="col-poster" mode="scaleToFill" src="{{col.cover}}"></image>
+                    <view class="col-info">
+                        <view class="col-title">{{col.title}}</view>
+                        <view class="col-refresh">{{col.extra.update_frequency}}</view>
+                        <view class="col-stage">
+                            <text class="col-stage-sta">已更新 {{col.extra.article_count}} 个 | 已学习 <text class="learned">{{col.extra.view_article_count}}</text> 个</text>
+                            <view class="wrap">
+                                <view class="col-play">
+                                    <text class="iconfont icon-play2"></text>
+                                    <text class="play-text">开始学习</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="nothing" wx:else>
+                <image class="nothing-img" src="https://static001.geekbang.org/resource/image/58/d3/58788c99a224466d66ad5045d1ab0ad3.png"></image>
+                <text class="text">暂无订阅</text>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{type===2}}">
+        <view class="type-wrap">
+            <view class="type" wx:if="{{course.all.length!==0}}">
+                <view bindtap="jump" class="col-item" data-item="{{course}}" wxforIndex="index" wx:for="{{course.all}}" wx:for-item="course" wx:key="index">
+                    <image class="col-poster" mode="scaleToFill" src="{{course.cover}}"></image>
+                    <view class="col-info">
+                        <view class="col-title">{{course.title}}</view>
+                        <view class="col-refresh">{{course.extra.update_frequency}}</view>
+                        <view class="col-stage">
+                            <text class="col-stage-sta">已更新 {{course.extra.article_count}} 个 | 已学习 <text class="learned">{{course.extra.view_article_count}}</text> 个</text>
+                            <view class="wrap">
+                                <view class="col-play">
+                                    <text class="iconfont icon-play2"></text>
+                                    <text class="play-text">开始学习</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="nothing" wx:else>
+                <image class="nothing-img" src="https://static001.geekbang.org/resource/image/58/d3/58788c99a224466d66ad5045d1ab0ad3.png"></image>
+                <text class="text">暂无订阅</text>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{type===3}}">
+        <view class="type-wrap">
+            <view class="type" wx:if="{{vcourse.all.length!==0}}">
+                <view bindtap="jump" class="col-item" data-item="{{vcourse}}" wxforIndex="index" wx:for="{{vcourse.all}}" wx:for-item="vcourse" wx:key="index">
+                    <image class="col-poster" mode="scaleToFill" src="{{vcourse.cover}}"></image>
+                    <view class="col-info">
+                        <view class="col-title">{{vcourse.title}}</view>
+                        <view class="col-refresh">{{vcourse.extra.update_frequency}}</view>
+                        <view class="col-stage">
+                            <text class="col-stage-sta">已更新 {{vcourse.extra.article_count}} 个 | 已学习 <text class="learned">{{vcourse.extra.view_article_count}}</text> 个</text>
+                            <view class="wrap">
+                                <view class="col-play">
+                                    <text class="iconfont icon-play2"></text>
+                                    <text class="play-text">开始学习</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="nothing" wx:else>
+                <image class="nothing-img" src="https://static001.geekbang.org/resource/image/58/d3/58788c99a224466d66ad5045d1ab0ad3.png"></image>
+                <text class="text">暂无订阅</text>
+            </view>
+        </view>
+    </view>
+    <view wx:if="{{type===4}}">
+        <view class="type-wrap">
+            <view class="type" wx:if="{{others.all.length!==0}}">
+                <view bindtap="jump" class="col-item" data-item="{{others}}" wxforIndex="index" wx:for="{{others.all}}" wx:for-item="others" wx:key="index">
+                    <image class="col-poster" mode="scaleToFill" src="{{others.cover}}"></image>
+                    <view class="col-info">
+                        <view class="col-title">{{others.title}}</view>
+                        <view class="col-refresh">{{others.extra.update_frequency}}</view>
+                        <view class="col-stage">
+                            <text class="col-stage-sta">已更新 {{others.extra.article_count}} 个 | 已学习 <text class="learned">{{others.extra.view_article_count}}</text> 个</text>
+                            <view class="wrap">
+                                <view class="col-play">
+                                    <text class="iconfont icon-play2"></text>
+                                    <text class="play-text">开始学习</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="nothing" wx:else>
+                <image class="nothing-img" src="https://static001.geekbang.org/resource/image/58/d3/58788c99a224466d66ad5045d1ab0ad3.png"></image>
+                <text class="text">暂无订阅</text>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,218 @@
+<template name="wxParse7">
+    <block wx:if="{{item.node=='element'}}">
+        <view class="{{item.classStr}} {{item.tagType}} {{item.tag}}" style="{{item.styleStr}}" wx:if="{{item.tag=='li'}}">
+            <view class="li-inner">
+                <view class="li-style">
+                    <view class="li-ring" wx:if="{{item.parentTag!=='ol'}}"></view>
+                    <view class="li-number" wx:if="{{item.parentTag==='ol'}}">{{item.startIndex?item.startIndex+item.selfIndex:item.selfIndex+1}}.</view>
+                </view>
+                <view class="li-text">
+                    <template is="wxParse8" data="{{item:item}}" wx:for="{{item.nodes}}"></template>
+                </view>
+            </view>
+        </view>
+        <template is="wxParseVideo" data="{{item:item}}" wx:elif="{{item.tag=='video'}}"></template>
+        <template is="wxParseImg" data="{{item:item}}" wx:elif="{{item.tag=='img'}}"></template>
+        <template is="WxParseBr" data wx:elif="{{item.tag=='br'}}"></template>
+        <view bindtap="wxParseTagATap" class="{{item.classStr}} inline {{item.tag}}" data-src="{{item.attr.href}}" hoverClass="a-hover" style="{{item.styleStr}}" wx:elif="{{item.tag=='a'}}">
+            <template is="wxParse8" data="{{item:item}}" wx:for="{{item.nodes}}"></template>
+        </view>
+        <view class="{{item.classStr}} {{item.tagType}} {{item.tag}}" style="{{item.styleStr}}" wx:else>
+            <template is="wxParse8" data="{{item:item}}" wx:for="{{item.nodes}}"></template>
+        </view>
+    </block>
+    <template is="wxParseText" data="{{item:item}}" wx:elif="{{item.node=='text'}}"></template>
+</template>
+<template name="wxParse6">
+    <block wx:if="{{item.node=='element'}}">
+        <view class="{{item.classStr}} {{item.tagType}} {{item.tag}}" style="{{item.styleStr}}" wx:if="{{item.tag=='li'}}">
+            <view class="li-inner">
+                <view class="li-style">
+                    <view class="li-ring" wx:if="{{item.parentTag!=='ol'}}"></view>
+                    <view class="li-number" wx:if="{{item.parentTag==='ol'}}">{{item.startIndex?item.startIndex+item.selfIndex:item.selfIndex+1}}.</view>
+                </view>
+                <view class="li-text">
+                    <template is="wxParse7" data="{{item:item}}" wx:for="{{item.nodes}}"></template>
+                </view>
+            </view>
+        </view>
+        <template is="wxParseVideo" data="{{item:item}}" wx:elif="{{item.tag=='video'}}"></template>
+        <template is="wxParseImg" data="{{item:item}}" wx:elif="{{item.tag=='img'}}"></template>
+        <template is="WxParseBr" data wx:elif="{{item.tag=='br'}}"></template>
+        <view bindtap="wxParseTagATap" class="{{item.classStr}} inline {{item.tag}}" data-src="{{item.attr.href}}" hoverClass="a-hover" style="{{item.styleStr}}" wx:elif="{{item.tag=='a'}}">
+            <template is="wxParse7" data="{{item:item}}" wx:for="{{item.nodes}}"></template>
+        </view>
+        <view class="{{item.classStr}} {{item.tagType}} {{item.tag}}" style="{{item.styleStr}}" wx:else>
+            <template is="wxParse7" data="{{item:item}}" wx:for="{{item.nodes}}"></template>
+        </view>
+    </block>
+    <template is="wxParseText" data="{{item:item}}" wx:elif="{{item.node=='text'}}"></template>
+</template>
+<template name="wxParse5">
+    <block wx:if="{{item.node=='element'}}">
+        <view class="{{item.classStr}} {{item.tagType}} {{item.tag}}" style="{{item.styleStr}}" wx:if="{{item.tag=='li'}}">
+            <view class="li-inner">
+                <view class="li-style">
+                    <view class="li-ring" wx:if="{{item.parentTag!=='ol'}}"></view>
+                    <view class="li-number" wx:if="{{item.parentTag==='ol'}}">{{item.startIndex?item.startIndex+item.selfIndex:item.selfIndex+1}}.</view>
+                </view>
+                <view class="li-text">
+                    <template is="wxParse6" data="{{item:item}}" wx:for="{{item.nodes}}"></template>
+                </view>
+            </view>
+        </view>
+        <template is="wxParseVideo" data="{{item:item}}" wx:elif="{{item.tag=='video'}}"></template>
+        <template is="wxParseImg" data="{{item:item}}" wx:elif="{{item.tag=='img'}}"></template>
+        <template is="WxParseBr" data wx:elif="{{item.tag=='br'}}"></template>
+        <view bindtap="wxParseTagATap" class="{{item.classStr}} inline {{item.tag}}" data-src="{{item.attr.href}}" hoverClass="a-hover" style="{{item.styleStr}}" wx:elif="{{item.tag=='a'}}">
+            <template is="wxParse6" data="{{item:item}}" wx:for="{{item.nodes}}"></template>
+        </view>
+        <view class="{{item.classStr}} {{item.tagType}} {{item.tag}}" style="{{item.styleStr}}" wx:else>
+            <template is="wxParse6" data="{{item:item}}" wx:for="{{item.nodes}}"></template>
+        </view>
+    </block>
+    <template is="wxParseText" data="{{item:item}}" wx:elif="{{item.node=='text'}}"></template>
+</template>
+<template name="wxParse4">
+    <block wx:if="{{item.node=='element'}}">
+        <view class="{{item.classStr}} {{item.tagType}} {{item.tag}}" style="{{item.styleStr}}" wx:if="{{item.tag=='li'}}">
+            <view class="li-inner">
+                <view class="li-style">
+                    <view class="li-ring" wx:if="{{item.parentTag!=='ol'}}"></view>
+                    <view class="li-number" wx:if="{{item.parentTag==='ol'}}">{{item.startIndex?item.startIndex+item.selfIndex:item.selfIndex+1}}.</view>
+                </view>
+                <view class="li-text">
+                    <template is="wxParse5" data="{{item:item}}" wx:for="{{item.nodes}}"></template>
+                </view>
+            </view>
+        </view>
+        <template is="wxParseVideo" data="{{item:item}}" wx:elif="{{item.tag=='video'}}"></template>
+        <template is="wxParseImg" data="{{item:item}}" wx:elif="{{item.tag=='img'}}"></template>
+        <template is="WxParseBr" data wx:elif="{{item.tag=='br'}}"></template>
+        <view bindtap="wxParseTagATap" class="{{item.classStr}} inline {{item.tag}}" data-src="{{item.attr.href}}" hoverClass="a-hover" style="{{item.styleStr}}" wx:elif="{{item.tag=='a'}}">
+            <template is="wxParse5" data="{{item:item}}" wx:for="{{item.nodes}}"></template>
+        </view>
+        <view class="{{item.classStr}} {{item.tagType}} {{item.tag}}" style="{{item.styleStr}}" wx:else>
+            <template is="wxParse5" data="{{item:item}}" wx:for="{{item.nodes}}"></template>
+        </view>
+    </block>
+    <template is="wxParseText" data="{{item:item}}" wx:elif="{{item.node=='text'}}"></template>
+</template>
+<template name="wxParse3">
+    <block wx:if="{{item.node=='element'}}">
+        <view class="{{item.classStr}} {{item.tagType}} {{item.tag}}" style="{{item.styleStr}}" wx:if="{{item.tag=='li'}}">
+            <view class="li-inner">
+                <view class="li-style">
+                    <view class="li-ring" wx:if="{{item.parentTag!=='ol'}}"></view>
+                    <view class="li-number" wx:if="{{item.parentTag==='ol'}}">{{item.startIndex?item.startIndex+item.selfIndex:item.selfIndex+1}}.</view>
+                </view>
+                <view class="li-text">
+                    <template is="wxParse4" data="{{item:item}}" wx:for="{{item.nodes}}"></template>
+                </view>
+            </view>
+        </view>
+        <template is="wxParseVideo" data="{{item:item}}" wx:elif="{{item.tag=='video'}}"></template>
+        <template is="wxParseImg" data="{{item:item}}" wx:elif="{{item.tag=='img'}}"></template>
+        <template is="WxParseBr" data wx:elif="{{item.tag=='br'}}"></template>
+        <view bindtap="wxParseTagATap" class="{{item.classStr}} inline {{item.tag}}" data-src="{{item.attr.href}}" hoverClass="a-hover" style="{{item.styleStr}}" wx:elif="{{item.tag=='a'}}">
+            <template is="wxParse4" data="{{item:item}}" wx:for="{{item.nodes}}"></template>
+        </view>
+        <view class="{{item.classStr}} {{item.tagType}} {{item.tag}}" style="{{item.styleStr}}" wx:else>
+            <template is="wxParse4" data="{{item:item}}" wx:for="{{item.nodes}}"></template>
+        </view>
+    </block>
+    <template is="wxParseText" data="{{item:item}}" wx:elif="{{item.node=='text'}}"></template>
+</template>
+<template name="wxParse2">
+    <block wx:if="{{item.node=='element'}}">
+        <view class="{{item.classStr}} {{item.tagType}} {{item.tag}}" style="{{item.styleStr}}" wx:if="{{item.tag=='li'}}">
+            <view class="li-inner">
+                <view class="li-style">
+                    <view class="li-square" wx:if="{{item.parentTag!=='ol'}}"></view>
+                    <view class="li-number" wx:if="{{item.parentTag==='ol'}}">{{item.startIndex?item.startIndex+item.selfIndex:item.selfIndex+1}}.</view>
+                </view>
+                <view class="li-text">
+                    <template is="wxParse3" data="{{item:item}}" wx:for="{{item.nodes}}"></template>
+                </view>
+            </view>
+        </view>
+        <template is="wxParseVideo" data="{{item:item}}" wx:elif="{{item.tag=='video'}}"></template>
+        <template is="wxParseImg" data="{{item:item}}" wx:elif="{{item.tag=='img'}}"></template>
+        <template is="WxParseBr" data wx:elif="{{item.tag=='br'}}"></template>
+        <view bindtap="wxParseTagATap" class="{{item.classStr}} inline {{item.tag}}" data-src="{{item.attr.href}}" hoverClass="a-hover" style="{{item.styleStr}}" wx:elif="{{item.tag=='a'}}">
+            <template is="wxParse3" data="{{item:item}}" wx:for="{{item.nodes}}"></template>
+        </view>
+        <view class="{{item.classStr}} {{item.tagType}} {{item.tag}}" style="{{item.styleStr}}" wx:else>
+            <template is="wxParse3" data="{{item:item}}" wx:for="{{item.nodes}}"></template>
+        </view>
+    </block>
+    <template is="wxParseText" data="{{item:item}}" wx:elif="{{item.node=='text'}}"></template>
+</template>
+<template name="wxParse1">
+    <block wx:if="{{item.node=='element'}}">
+        <view class="{{item.classStr}} {{item.tagType}} {{item.tag}}" style="{{item.styleStr}}" wx:if="{{item.tag=='li'}}">
+            <view class="li-inner">
+                <view class="li-style">
+                    <view class="li-circle" wx:if="{{item.parentTag!=='ol'}}"></view>
+                    <view class="li-number" wx:if="{{item.parentTag==='ol'}}">{{item.startIndex?item.startIndex+item.selfIndex:item.selfIndex+1}}.</view>
+                </view>
+                <view class="li-text">
+                    <template is="wxParse2" data="{{item:item}}" wx:for="{{item.nodes}}"></template>
+                </view>
+            </view>
+        </view>
+        <template is="wxParseVideo" data="{{item:item}}" wx:elif="{{item.tag=='video'}}"></template>
+        <template is="wxParseImg" data="{{item:item}}" wx:elif="{{item.tag=='img'}}"></template>
+        <template is="WxParseBr" data wx:elif="{{item.tag=='br'}}"></template>
+        <view bindtap="wxParseTagATap" class="{{item.classStr}} inline {{item.tag}}" data-src="{{item.attr.href}}" hoverClass="a-hover" style="{{item.styleStr}}" wx:elif="{{item.tag=='a'}}">
+            <template is="wxParse2" data="{{item:item}}" wx:for="{{item.nodes}}"></template>
+        </view>
+        <view class="{{item.classStr}} {{item.tagType}} {{item.tag}}" style="{{item.styleStr}}" wx:else>
+            <template is="wxParse2" data="{{item:item}}" wx:for="{{item.nodes}}"></template>
+        </view>
+    </block>
+    <template is="wxParseText" data="{{item:item}}" wx:elif="{{item.node=='text'}}"></template>
+</template>
+<template name="wxParse0">
+    <block wx:if="{{item.node=='element'}}">
+        <view class="{{item.classStr}} {{item.tagType}} {{item.tag}}" style="{{item.styleStr}}" wx:if="{{item.tag=='li'}}">
+            <view class="li-inner">
+                <view class="li-style">
+                    <view class="li-circle" wx:if="{{item.parentTag!=='ol'}}"></view>
+                    <view class="li-number" wx:if="{{item.parentTag==='ol'}}">{{item.startIndex?item.startIndex+item.selfIndex:item.selfIndex+1}}.</view>
+                </view>
+                <view class="li-text">
+                    <template is="wxParse1" data="{{item:item}}" wx:for="{{item.nodes}}"></template>
+                </view>
+            </view>
+        </view>
+        <template is="wxParseVideo" data="{{item:item}}" wx:elif="{{item.tag=='video'}}"></template>
+        <template is="wxParseImg" data="{{item:item}}" wx:elif="{{item.tag=='img'}}"></template>
+        <template is="WxParseBr" data wx:elif="{{item.tag=='br'}}"></template>
+        <view bindtap="wxParseTagATap" class="{{item.classStr}} inline {{item.tag}}" data-src="{{item.attr.href}}" hoverClass="a-hover" style="{{item.styleStr}}" wx:elif="{{item.tag=='a'}}">
+            <template is="wxParse1" data="{{item:item}}" wx:for="{{item.nodes}}"></template>
+        </view>
+        <view class="{{item.classStr}} {{item.tagType}} {{item.tag}}" style="{{item.styleStr}}" wx:else>
+            <template is="wxParse1" data="{{item:item}}" wx:for="{{item.nodes}}"></template>
+        </view>
+    </block>
+    <template is="wxParseText" data="{{item:item}}" wx:elif="{{item.node=='text'}}"></template>
+</template>
+<template name="wxParse">
+    <template is="wxParse0" data="{{item:item}}" wx:for="{{wxParseData}}"></template>
+</template>
+<template name="WxParseBr">
+    <text>
+</text>
+</template>
+<template name="wxParseText">
+    <block wx:if="{{item.node=='text'}}">{{item.text}}</block>
+</template>
+<template name="wxParseImg">
+    <image bindload="wxParseImgLoad" bindtap="wxParseImgTap" class="{{item.classStr}} {{item.tag}}" data-from="{{item.from}}" data-idx="{{item.imgIndex}}" data-ptag="{{item.parentTag}}" data-src="{{item.attr.src}}" mode="widthFix" src="{{item.attr.src}}" style="width:{{item.width}}px;"></image>
+</template>
+<template name="wxParseVideo">
+    <view class="{{item.classStr}} {{item.tag}}" style="{{item.styleStr}}">
+        <video class="{{item.classStr}}" src="{{item.attr.src}}"></video>
+    </view>
+</template>

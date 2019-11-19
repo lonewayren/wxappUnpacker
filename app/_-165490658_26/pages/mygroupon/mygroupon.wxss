@@ -1,0 +1,175 @@
+.clearfix {
+    zoom: 1;
+}
+
+.clearfix:after {
+    clear: both;
+    content: '.';
+    display: block;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.mygroupon {
+    background-color: #f5f5f5;
+    min-height: 100vh;
+}
+
+.mygroupon .tab {
+    display: flex;
+    background-color: white;
+    padding-left: 100rpx;
+    padding-right: 100rpx;
+}
+
+.mygroupon .tab .it {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+}
+
+.mygroupon .tab .it .a {
+    display: inline-block;
+    width: 100rpx;
+    font-size: 32rpx;
+    padding: 28rpx 0 16rpx 0;
+    text-align: center;
+    font-weight: 500;
+}
+
+.mygroupon .tab .it .b {
+    display: inline-block;
+    width: 94rpx;
+    font-size: 32rpx;
+    padding: 28rpx 0 16rpx 0;
+    text-align: center;
+    font-weight: 500;
+}
+
+.mygroupon .tab .it.active .a {
+    color: #ff5a05;
+    border-bottom: 3px solid #fa8919;
+}
+
+.mygroupon .tab .it.active .b {
+    color: #ff5a05;
+    border-bottom: 3px solid #fa8919;
+}
+
+.mygroupon .con {
+    padding: 20px;
+}
+
+.mygroupon .con .none {
+    margin-top: 184rpx;
+}
+
+.mygroupon .con .none .img image {
+    width: 263rpx;
+    height: 247rpx;
+    display: block;
+    margin: 0 auto;
+}
+
+.mygroupon .con .none .char {
+    text-align: center;
+    color: #888;
+    font-size: 32rpx;
+    padding-top: 56rpx;
+}
+
+.mygroupon .con .item {
+    background-color: white;
+    border-radius: 6px;
+    padding: 20rpx;
+    color: #888;
+    box-shadow: 0px 0px 6.04vw -2.415vw rgba(140,163,191,0.5);
+    margin-bottom: 36rpx;
+}
+
+.mygroupon .con .item .tit {
+    display: flex;
+    justify-content: space-between;
+    font-size: 26rpx;
+    padding-bottom: 20rpx;
+    vertical-align: middle;
+}
+
+.mygroupon .con .item .tit .clock {
+    font-size: 30rpx;
+    color: #fa8919;
+    font-weight: 500;
+}
+
+.mygroupon .con .item .tit .status {
+    background-color: #fa8919;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22rpx;
+    font-weight: 500;
+    width: 110rpx;
+    height: 40rpx;
+    border-radius: 3px;
+}
+
+.mygroupon .con .item .tit .status.success {
+    background-color: #00c520;
+}
+
+.mygroupon .con .item .tit .status.fail {
+    background-color: #ff3b30;
+}
+
+.mygroupon .con .item .co {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.mygroupon .con .item .co image {
+    width: 183rpx;
+    height: 174rpx;
+}
+
+.mygroupon .con .item .co .ri {
+    padding-left: 27rpx;
+}
+
+.mygroupon .con .item .co .ri .ritop .a {
+    color: #353535;
+    padding-bottom: 8rpx;
+    font-size: 32rpx;
+}
+
+.mygroupon .con .item .co .ri .ritop .b {
+    color: #888;
+    font-size: 26rpx;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 379rpx;
+    overflow: hidden;
+    height: 35rpx;
+    font-weight: 400;
+    padding-bottom: 5rpx;
+}
+
+.mygroupon .con .item .co .ri .ribottom {
+    font-size: 26rpx;
+    padding-top: 17rpx;
+    text-align: right;
+}
+
+.mygroupon .con .item .co .ri .ribottom .rb1 {
+    color: #fa8919;
+    font-size: 26rpx;
+}
+
+.mygroupon .con .item .co .ri .ribottom .rb1.hidden {
+    opacity: 0;
+}
+
+.mygroupon .con .item .co .ri .ribottom .rb3 {
+    color: #fa8919;
+}

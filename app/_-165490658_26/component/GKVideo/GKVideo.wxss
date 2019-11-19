@@ -1,0 +1,153 @@
+.video-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.video-wrapper .gk-video {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.video-wrapper-fix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 56.13vw;
+    z-index: 2;
+    position: relative;
+}
+
+.video-wrapper-fix .gk-video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.title {
+    position: absolute;
+    z-index: 10;
+    top: 32rpx;
+    left: 32rpx;
+    right: 32rpx;
+    color: #fff;
+    font-weight: normal;
+    font-size: 28rpx;
+    word-break: break-word;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    z-index: 4;
+    color: #fff;
+    font-size: 32rpx;
+}
+
+.finish-control {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5);
+    background: #000;
+    color: #fa8919;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 32rpx;
+    font-family: monospace;
+}
+
+.finish-control-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.finish-control-btn .icon {
+    height: 55rpx;
+    width: 55rpx;
+    margin-bottom: 42rpx;
+    position: relative;
+    z-index: 100;
+}
+
+.finish-control-btn.is-next {
+    margin-left: 128rpx;
+}
+
+.prompt {
+    width: 70%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.prompt .p {
+    white-space: normal;
+    font-size: 32rpx;
+    margin: 0.8em auto 0 auto;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+}
+
+.prompt .p.is-first {
+    margin-top: 0;
+}
+
+.prompt .p-login {
+    display: inline;
+    color: #ff5a05;
+}
+
+.prompt .div {
+    width: 100%;
+    margin-top: 54rpx;
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    box-sizing: border-box;
+    color: #fff;
+    width: 224rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    font-size: 32rpx;
+    text-align: center;
+    background: #fa8919;
+    border-radius: 10rpx;
+    margin-left: 32rpx;
+}
+
+.btn.first {
+    margin-left: 0;
+}
+
+.btn.is-revert {
+    background: transparent;
+    color: #fa8919;
+    border: 1px solid #fa8919;
+}

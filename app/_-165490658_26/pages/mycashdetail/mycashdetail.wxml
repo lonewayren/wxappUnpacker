@@ -1,0 +1,14 @@
+<view class="cash-detail">
+    <view class="ul" wx:if="{{list.length>0}}">
+        <view class="li" wx:for="{{list}}">
+            <view class="info">
+                <view class="h2">{{item.title}}</view>
+                <view class="p">{{item.time_format_date}} {{item.time_format_time}}</view>
+            </view>
+            <view class="amount {{item.type===1?'income':''}}">
+        {{item.type===1?'+ ':'- '}}{{item.amount_format}}
+      </view>
+        </view>
+    </view>
+    <view class="none" wx:else>暂无明细</view>
+</view>

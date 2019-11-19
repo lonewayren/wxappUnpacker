@@ -1,0 +1,14 @@
+<scroll-view scrollY class="likes-container">
+    <view class="praise-item" wx:for="{{likesData}}" wx:key="index">
+        <view bindtap="jump" class="praise-item-bd" data-artical="{{item}}">
+            <image class="praise-item-bd-cover" mode="widthFix" src="{{item.article_cover}}"></image>
+            <view class="praise-item-bd-info">
+                <text class="praise-item-bd-info-title">{{item.article_title}}</text>
+                <view class="praise-item-bd-info-column">
+                    <text class="praise-item-bd-info-column-title">{{item.column_title}}</text>
+                    <text class="praise-item-bd-info-column-author">{{item.author_name}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</scroll-view>

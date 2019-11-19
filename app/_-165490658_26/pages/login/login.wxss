@@ -1,0 +1,40 @@
+page {
+    text-align: center;
+}
+
+.logo {
+    width: 230rpx;
+    margin: 0 auto;
+    margin-top: 250rpx;
+}
+
+.btns {
+    position: absolute;
+    bottom: 230rpx;
+    left: 0;
+    right: 0;
+}
+
+.btn {
+    width: 660rpx;
+    height: 94rpx;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border: 1px solid #fa8919;
+    background: #fff;
+    border-radius: 10rpx;
+    font-size: 34rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fa8919;
+}
+
+.btn::after {
+    border: none;
+}
+
+.btn.is-primary {
+    background: #fa8919;
+    color: #fff;
+}

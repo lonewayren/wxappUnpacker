@@ -1,0 +1,168 @@
+.clearfix {
+    clear: both;
+    overflow: hidden;
+}
+
+.fa {
+    background-color: #f5f5f5;
+    colr: #353535;
+    min-height: 100vh;
+}
+
+.fa .reward {
+    background-color: white;
+    color: #353535;
+    border-top: 1px solid #f5f5f5;
+}
+
+.fa .reward .container {
+    clear: both;
+    overflow: hidden;
+}
+
+.fa .reward .container .detail {
+    float: right;
+    width: 100rpx;
+    text-align: center;
+    font-size: 14px;
+    color: #353535;
+    padding: 10px;
+}
+
+.fa .reward .mon {
+    padding-bottom: 20px;
+}
+
+.fa .reward .mon .le {
+    float: left;
+    width: 360rpx;
+    padding-left: 38rpx;
+}
+
+.fa .reward .mon .le .ca {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.fa .reward .mon .le .num {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.fa .reward .mon .ri {
+    float: right;
+    padding-top: 23rpx;
+    padding-right: 22px;
+}
+
+.fa .reward .mon .ri .get {
+    background-color: #fa8919;
+    color: white;
+    font-size: 15px;
+    width: 106px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+.fa .reward .mon .ri .get.prevent {
+    background-color: #f5f5f5;
+    color: #ccc;
+}
+
+.fa .ti {
+    margin-top: 16px;
+    background-color: white;
+    text-align: center;
+    height: 33px;
+    line-height: 33px;
+    border-bottom: 1px solid #f5f5f5;
+    font-size: 14px;
+}
+
+.fa .column-list {
+    padding-bottom: 50px;
+}
+
+.fa .column-list .li {
+    padding: 22px 22px 18px 22px;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: #FFF;
+    margin-bottom: 6px;
+}
+
+.fa .column-list .li .info .h2 {
+    font-size: 17px;
+}
+
+.fa .column-list .li .info .p {
+    font-size: 13.3px;
+    color: #888;
+    margin-top: 5px;
+}
+
+.fa .column-list .li .info .p span {
+    display: inline-block;
+}
+
+.fa .column-list .li .info .p .price {
+    min-width: 60px;
+}
+
+.fa .column-list .li .info .p .tips {
+    margin-left: 7px;
+    color: #fa8919;
+}
+
+.fa .column-list .li .control {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.fa .column-list .li .control .button {
+    display: block;
+    color: #FFF;
+    width: 106px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 3px;
+    background: #fa8919;
+    cursor: pointer;
+}
+
+.fa .column-list .li .control .tips {
+    color: #888;
+    font-size: 10.3px;
+}
+
+.fa .none {
+    border: 1px solid #f5f5f5;
+    background-color: white;
+    height: 132px;
+    color: #888;
+    font-size: 16px;
+    line-height: 132px;
+    text-align: center;
+}
+
+.fa .rule {
+    text-align: center;
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    padding: 10px 0;
+    font-size: 14px;
+    width: 750rpx;
+    color: #fa8919;
+    border-top: 1px solid #f5f5f5;
+}
+
+@media only screen and (width:375px) and (height:724px) {
+    .fa .rule {
+        padding-bottom: 25px;
+    }
+}

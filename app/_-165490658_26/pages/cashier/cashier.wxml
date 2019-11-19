@@ -1,0 +1,66 @@
+<form reportSubmit bindsubmit="pay" class="order">
+    <view class="order-list">
+        <view class="order-list-item" wx:for="{{orderInfo.list}}">
+            <image src="{{item.image}}"></image>
+            <view class="dl">
+                <view>{{item.name}}</view>
+                <view class="dd">
+                    <view class="price">¥ {{item.price.saleFormat}}</view>
+                    <view>x{{item.count}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="info">
+        <view class="info-coupon">
+            <view>礼券:</view>
+            <view bindtap="selectCoupon" style="color: #888;cursor: pointer;" wx:if="{{couldSelectCoupon===0}}">
+        无可用礼券
+        <text class="iconfont icon-arrowright1" style="color: #888"></text>
+            </view>
+            <view bindtap="selectCoupon" style="color: #888;cursor: pointer;" wx:elif="{{selectedCoupon===-1}}">
+        不使用礼券
+        <text class="iconfont icon-arrowright1" style="color: #888"></text>
+            </view>
+            <view bindtap="selectCoupon" class="orange" wx:elif="{{selectedCoupon!=null}}">
+        {{couponList[selectedCoupon].name}}: -{{couponList[selectedCoupon].amountFormat}}
+        <text class="iconfont icon-arrowright1" style="color: #888"></text>
+            </view>
+            <view wx:else>暂无可用</view>
+        </view>
+        <view class="info-price">
+            <text>需付款:</text>
+            <text class="orange iconfont" space="nbsp"> ¥ {{needPayFormat}}</text>
+        </view>
+    </view>
+    <view class="coupon-tip">提示：礼券不与其他优惠同享</view>
+    <view class="cellphone">当前账号：{{user.cellphone}}<text bindtap="gotoLogin" class="change">切换账号</text>
+    </view>
+    <view class="bottom">
+        <view class="button button-primary {{requesting?'button-requesting':''}}">
+      确认支付
+      <button formType="submit"></button>
+        </view>
+    </view>
+</form>
+<view class="popup {{shareSale.show?'is-show':''}}" style="">
+    <view class="popup-box">
+        <block wx:if="{{shareSale.step===1}}">
+            <view class="ssale-hd">支付成功</view>
+            <view class="ssale-bd">
+                <view class="ssale-icon">
+                    <text class="iconfont icon-xingzhuang7"></text>
+                </view>
+                <view class="ssale-price">{{shareSale.title}}</view>
+                <view class="ssale-pricetip">{{shareSale.description}}</view>
+                <view bindtap="chooseShareSaleTip" class="ssale-btn is-strong" data-share="{{true}}">获取专属海报</view>
+                <view bindtap="chooseShareSaleTip" class="ssale-btn is-weak" data-share="{{false}}">不差钱，不分享</view>
+            </view>
+        </block>
+        <view class="ssale-bd2" wx:if="{{shareSale.step===2}}">
+            <view class="ssale-postertip">你可以在极客时间小程序-我的-分享有赏获取海报</view>
+            <view class="ssale-postertip-line"></view>
+            <view bindtap="closeShareSaleTip" class="ssale-btn is-strong">知道了</view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,7 @@
+{
+    "navigationBarTitleText": "极客时间",
+    "usingComponents": {
+        "action-sheet-share": "/component/ActionSheetShare/ActionSheetShare",
+        "subscribe-tip": "/component/SubscribeTip/SubscribeTip"
+    }
+}

@@ -1,0 +1,159 @@
+<view class="container">
+    <view class="card">
+        <view class="{{gr.stat===1?'info':'info2'}}">
+            <view class="avatarArea" style="opacity: {{gr.partners[0]?'1':'0'}}" wx:if="{{gr.stat===1}}">
+                <image class="avatar" src="{{gr.partners[0].header}}"></image>
+                <view class="nic">{{gr.partners[0].nickname}}</view>
+                <view class="tag">团长</view>
+            </view>
+            <view class="{{gr.stat===1?'status':'status2'}}">
+                <view class="content" wx:if="{{co.had_sub&&gr.jstat!==1||gr.jstat===2}}">不符合参团条件</view>
+                <view class="content" wx:elif="{{!co.had_sub&&gr.stat===1&&gr.jstat===0}}">待参团</view>
+                <view class="content" wx:elif="{{gr.stat===1&&gr.jstat===1}}">已参团</view>
+                <view class="success" wx:elif="{{gr.stat===2&&gr.jstat===1}}">拼团成功</view>
+                <view class="fail" wx:elif="{{gr.stat===0&&gr.jstat===1}}">拼团失败</view>
+                <view class="over" wx:elif="{{!co.had_sub&&gr.stat!==1&&gr.jstat===0}}">拼团结束</view>
+                <view class="successbg" wx:if="{{gr.stat===2&&gr.jstat===1}}"></view>
+                <view class="des" wx:if="{{gr.stat===1}}">距拼团结束还有</view>
+                <view class="successDes" wx:elif="{{gr.stat===2&&gr.jstat===1}}">耗时：{{time.successTime(gr.success_time-gr.stime)}}</view>
+                <view class="failDes" wx:elif="{{gr.stat===0&&gr.jstat===1}}">限时{{time.endTime(gr.etime-gr.stime)}}小时拼团已超时</view>
+                <view class="overDes" wx:elif="{{!co.had_sub&&gr.stat!==1&&gr.jstat===0}}">很遗憾，你来晚了一步</view>
+                <view wx:else></view>
+            </view>
+            <view class="timeArea" wx:if="{{gr.stat===1}}">
+                <view class="times">
+                    <text class="n">{{time.day(gr.rtime)}}</text>
+                    <text class="c">:</text>
+                    <text class="n">{{time.hour(gr.rtime)}}</text>
+                    <text class="c">:</text>
+                    <text class="n">{{time.min(gr.rtime)}}</text>
+                    <text class="c">:</text>
+                    <text class="n">{{time.sec(gr.rtime)}}</text>
+                </view>
+                <view class="desBox">
+                    <view class="n">DAY</view>
+                    <text class="c"></text>
+                    <view class="n">HOUR</view>
+                    <text class="c"></text>
+                    <view class="n">MIN</view>
+                    <text class="c"></text>
+                    <view class="n">SEC</view>
+                </view>
+            </view>
+        </view>
+        <view class="column" wx:if="{{co.title}}">
+            <view class="columnBox">
+                <image class="poster" src="{{co.cover}}"></image>
+                <view class="columnInfo">
+                    <view class="cname">{{co.title}}</view>
+                    <view class="des">{{co.author_name}}，{{co.author_intro}}</view>
+                    <view class="more">
+                        <view>
+                            <text class="count">{{co.sub_count}}</text>人已加入学习</view>
+                        <view bindtap="gotoColumn" class="learMOre">
+                            <text class="text">了解详情</text>
+                            <view class="iconBox">
+                                <text class="iconfont icon-arrowright2"></text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="handle">
+            <view class="stat1 colcenter" wx:if="{{gr.stat===1}}">
+                <view class="number">还差<text class="num">{{gr.success_ucount-gr.join_ucount}}</text>人即可拼团成功</view>
+                <view bindtap="subscribe" class="share" data-type="3" wx:if="{{!co.had_sub&&gr.jstat===0}}">加入拼团</view>
+                <view bindtap="popupShare" class="share" wx:else>召唤更多小伙伴参团</view>
+                <view class="tips" wx:if="{{co.had_sub}}">
+                    <text class="iconfont icon-iconfontxiaogantanhao"></text> 你已经订阅过此专栏，不可重复订阅</view>
+                <view class="tips" wx:elif="{{gr.jstat===2}}">
+                    <text class="iconfont icon-iconfontxiaogantanhao"></text> 你正在参与该商品的拼团，不可重复参与</view>
+            </view>
+            <view class="stat2 colcenter" wx:elif="{{gr.stat===2&&gr.jstat===1||co.had_sub}}">
+                <view bindtap="gotoStudy" class="share">开始学习</view>
+            </view>
+            <view class="joinOther colcenter" wx:elif="{{gr.stat!==1&&gr.jstat===2}}">
+                <view bindtap="gotoProcess" class="share">查看团进度</view>
+            </view>
+            <view class="ptOver colcenter" wx:elif="{{co.is_onboard}}">
+                <view bindtap="subscribe" class="share" data-type="2" wx:if="{{co.gr.success_ucount}}">我来开团， ¥{{util.formatPrice(co.gr.price,2)}} / {{co.gr.success_ucount}}人成团</view>
+                <view bindtap="subscribe" class="share buyBtn" data-type="1">原价订阅， ¥{{util.formatPrice(co.price,2)}} / 开启学习</view>
+            </view>
+        </view>
+    </view>
+    <view class="friends" wx:if="{{gr.partners.length&&(co.had_sub||gr.stat!==0||gr.jstat!==0)}}">
+        <view class="title">
+            <text class="iconfont icon-line"></text>
+            <text class="iconfont content">{{gr.partners.length<=20?'我的拼团好友':'参与拼团人'}}</text>
+        </view>
+        <block wx:if="{{gr.partners.length<=20}}">
+            <view class="lists" wx:for="{{gr.partners}}">
+                <view class="list">
+                    <image class="avatar" src="{{item.header}}"></image>
+                    <view class="infos">
+                        <view class="name">
+                            <text class="nic">{{item.nickname}}</text>
+                            <text class="tag" wx:if="{{item.is_host}}">团长</text>
+                        </view>
+                        <view class="time">{{item.is_host?'开':'参'}}团时间：<text class="stamp" space="nbsp">{{util.formatDate(item.join_time,'.')}}  {{util.formatTime(item.join_time,'hh:mm')}}</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view class="long" wx:else>
+            <image class="avatar" src="{{item.header}}" wx:for="{{gr.partners}}"></image>
+            <image class="avatar is-bigger" src="https://static001.geekbang.org/resource/image/eb/a6/eb52b43ff386b7386f01f2dd2219f9a6.png" wx:if="{{gr.partners.length>=100}}"></image>
+        </view>
+    </view>
+    <view bindtap="gotoRule" class="ruler">
+        <text class="iconfont icon-iconfontxiaogantanhao"></text>查看拼团规则</view>
+</view>
+<canvas canvasId="canvas-share" style="width: 500px; height: 400px; position: fixed; left: -1000px; top: -1000px;"></canvas>
+<action-sheet-share actions="{{shareActions}}" bindselect="selectAction" show="{{showActionSheet}}"></action-sheet-share>
+<subscribe-tip bind:hide="hideReview" show="{{showReview}}"></subscribe-tip>
+<action-sheet-share actions="{{payActions}}" bindselect="selectPayAction" show="{{showPayAction}}"></action-sheet-share>
+<wxs module="util" src="../../utilswxs/index.wxs" />
+<wxs module="time">
+var day = (function(t) {
+    if (!t) return ('00');;
+    var days = Math.floor(t / (1000 * 60 * 60 * 24));
+    return (days >= 10 ? days : '0' + days.toString())
+});
+var hour = (function(t) {
+    if (!t) return ('00');;
+    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+    return (hours >= 10 ? hours : '0' + hours.toString())
+});
+var min = (function(t) {
+    if (!t) return ('00');;
+    var minutes = Math.floor((t / 1000 / 60) % 60);
+    return (minutes >= 10 ? minutes : '0' + minutes.toString())
+});
+var sec = (function(t) {
+    if (!t) return ('00');;
+    var seconds = Math.floor((t / 1000) % 60);
+    return (seconds >= 10 ? seconds : '0' + seconds.toString())
+});
+var hours = (function(t) {
+    if (!t) return ('00');;
+    var hours = Math.floor(t / (1000 * 60 * 60));
+    return (hours >= 10 ? hours : '0' + hours.toString())
+});
+module.exports.day = day;
+module.exports.hour = hour;
+module.exports.min = min;
+module.exports.sec = sec;
+module.exports.hours = hours;
+module.exports.successTime = (function(s) {
+    var ms = s * 1000;
+    var days = Math.floor(ms / (1000 * 60 * 60 * 24));
+    days = days > 0 ? days + '天' : '';
+    return (days + hour(ms) + '小时' + min(ms) + '分钟' + sec(ms) + '秒')
+});
+module.exports.endTime = (function(s) {
+    var hours = Math.floor(s / (60 * 60));
+    return (hours)
+});
+</wxs>

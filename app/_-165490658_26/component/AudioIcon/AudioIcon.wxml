@@ -1,0 +1,3 @@
+<view bindtap="go" class="btn" wx:if="{{data.show}}">
+    <image class="btn-icon" mode="widthFix" src="{{data.playing?'http://static001.geekbang.org/wxlitetime/audio-play-high.gif':'/assets/img/audio-play-normal.png'}}"></image>
+</view>

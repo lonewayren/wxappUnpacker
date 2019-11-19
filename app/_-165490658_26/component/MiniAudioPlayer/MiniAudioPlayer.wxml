@@ -1,0 +1,11 @@
+<view class="mini-audio-player">
+    <view bindtap="play" class="btn-play" wx:if="{{!playing}}"></view>
+    <view bindtap="pause" class="btn-pause" wx:else></view>
+    <view class="audio-info">
+        <view class="h3">{{data.article_title}}</view>
+        <view class="p">
+            <text space="nbsp" wx:if="data.audio_dubber">朗读人：{{data.audio_dubber}}   </text>
+            <text wx:if="data.audio_time_arr">{{data.audio_time_arr.m}}′{{data.audio_time_arr.s}}′′ | {{data.audio_size_format}}</text>
+        </view>
+    </view>
+</view>
